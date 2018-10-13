@@ -7,6 +7,7 @@ const P5 = require('p5');
 const sketch = function(p: any) {
   let props: any;
   let sec: any;
+  let temp: any;
   let initial_size = 10;
   let initial_deviation = 10;
   let deviation = 8;
@@ -14,9 +15,10 @@ const sketch = function(p: any) {
   let points: Array<any>;
   let current: Array<any>;
 
-  p.setOnReady = function(_pr: any, _sec: any) {
+  p.setOnReady = function(_pr: any, _sec: any, _temp: any) {
     props = _pr;
     sec = _sec;
+    temp = _temp;
   };
 
   p.setup = function() {
@@ -26,21 +28,19 @@ const sketch = function(p: any) {
     p.noStroke();
     p.colorMode(p.HSB);
     p.blendMode(p.SOFT_LIGHT);
-    p.blendMode(p.BURN);
+    //p.blendMode(p.BURN);
     //p.noLoop();
   };
 
   p.draw = function() {
-    let mapDistanciaVentana = p.map(props, 0, 70, 0, p.windowWidth / 2);
-    p.translate(mapDistanciaVentana, 250 + sec);
+    let mapDistanciaVentana = p.map(props, 0, 70, 0, p.windowHeight);
+    p.translate(mapDistanciaVentana, 300 * (sec * 0.02));
     init();
 
     p.fill(220, props, 120, 0.02);
 
-    // for (var i = 0; i < props * 0.01; i++) {
     current = update();
     display();
-    // }
   };
 
   function init() {
@@ -63,7 +63,7 @@ const sketch = function(p: any) {
     let c = deep_copy(points);
     for (let b = 0; b < 3; b++) {
       for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], props * 0.5 + sec);
+        move_nearby(c[i], props * 0.7);
       }
     }
     return c;
