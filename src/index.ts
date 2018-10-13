@@ -33,8 +33,13 @@ const sketch = function(p: any) {
   };
 
   p.draw = function() {
-    let mapDistanciaVentana = p.map(props, 0, 70, 0, p.windowHeight);
-    p.translate(mapDistanciaVentana, 300 * (sec * 0.02));
+    console.log(props);
+
+    let mapDistanciaVentana = p.map(props, 0, 130, 0, p.windowWidth);
+    //console.log(mapDistanciaVentana);
+
+    p.translate(mapDistanciaVentana, 100 * sec * 0.09);
+    p.rotate(props);
     init();
 
     p.fill(220, props, 120, 0.02);
@@ -63,7 +68,7 @@ const sketch = function(p: any) {
     let c = deep_copy(points);
     for (let b = 0; b < 3; b++) {
       for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], props * 0.7);
+        move_nearby(c[i], props * temp * 3);
       }
     }
     return c;
@@ -469,10 +474,10 @@ function playOutput(index: number) {
           currentPianoTimeSec,
           activeNoteEndTimeSec + 0.5
         );
-        canvas.setOnReady(noteNum, timeSec);
+
         piano.keyUp(noteNum, timeSec);
 
-        canvas.setOnReady(0, 0);
+        canvas.setOnReady(0, 0, 0);
         activeNotes.delete(noteNum);
         return;
       } else if (eventType === 'time_shift') {
@@ -485,10 +490,10 @@ function playOutput(index: number) {
                 `seconds which is over ${MAX_NOTE_DURATION_SECONDS}, will ` +
                 `release.`
             );
-            canvas.setOnReady(noteNum, currentPianoTimeSec);
+            canvas.setOnReady(noteNum, currentPianoTimeSec, 0);
             piano.keyUp(noteNum, currentPianoTimeSec);
             activeNotes.delete(noteNum);
-            canvas.setOnReady(0, 0);
+            canvas.setOnReady(0, 0, 0);
           }
         });
         return currentPianoTimeSec;
