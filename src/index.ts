@@ -35,7 +35,7 @@ const sketch = function(p: any) {
   p.draw = function() {
     console.log(props);
 
-    let mapDistanciaVentana = p.map(props, 0, 130, 0, p.windowWidth);
+    let mapDistanciaVentana = p.map(p.int(props), 0, 120, 0, p.windowWidth);
     //console.log(mapDistanciaVentana);
 
     p.translate(mapDistanciaVentana, 100 * sec * 0.09);
@@ -68,7 +68,7 @@ const sketch = function(p: any) {
     let c = deep_copy(points);
     for (let b = 0; b < 3; b++) {
       for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], props * temp * 3);
+        move_nearby(c[i], temp * 200);
       }
     }
     return c;
