@@ -33,16 +33,12 @@ const sketch = function(p: any) {
   };
 
   p.draw = function() {
-    console.log(props);
-
     let mapDistanciaVentana = p.map(p.int(props), 0, 120, 0, p.windowWidth);
     //console.log(mapDistanciaVentana);
-
-    p.translate(mapDistanciaVentana, 100 * sec * 0.09);
-    p.rotate(props);
+    p.translate(mapDistanciaVentana, 200 * sec * 0.02);
     init();
 
-    p.fill(220, props, 120, 0.02);
+    p.fill(220, props, 120, temp * 0.2);
 
     current = update();
     display();
@@ -68,14 +64,14 @@ const sketch = function(p: any) {
     let c = deep_copy(points);
     for (let b = 0; b < 3; b++) {
       for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], temp * 200);
+        move_nearby(c[i], props * temp * 4);
       }
     }
     return c;
   }
 
   function display() {
-    p.beginShape();
+    p.beginShape(p.TRIANGLES);
     for (let i = 0; i < current.length; i++) {
       p.vertex(current[i].x, current[i].y);
     }
@@ -135,7 +131,7 @@ let fcB: tf.Tensor1D;
 let fcW: tf.Tensor2D;
 const forgetBias = tf.scalar(1.0);
 const activeNotes = new Map<number, number>();
-const noteDensityIdx = 2;
+const noteDensityIdx = 1;
 const globalGain = 35;
 
 // How many steps to generate per generateStep call.
