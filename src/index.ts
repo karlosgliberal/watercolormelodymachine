@@ -1,8 +1,10 @@
 import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
+import { fill } from '@tensorflow/tfjs-core';
 
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
+let canvas;
 
 const sketch = function(p: any) {
   let props: any;
@@ -33,13 +35,14 @@ const sketch = function(p: any) {
   };
 
   p.draw = function() {
-    let mapDistanciaVentana = p.map(p.int(props), 0, 120, 0, p.windowWidth);
-    //console.log(mapDistanciaVentana);
-    p.translate(mapDistanciaVentana, 200 * sec * 0.02);
+    p.translate(props * 16.55 - 340, 200 * sec * 0.02);
+    //p.rect(0, 0, 10, 10);
+    if (sec < 5) {
+      p.fill(0, 0, 0, 0.25);
+    } else {
+      p.fill(220, props, 120, temp * 0.2);
+    }
     init();
-
-    p.fill(220, props, 120, temp * 0.2);
-
     current = update();
     display();
   };
@@ -49,7 +52,7 @@ const sketch = function(p: any) {
     for (var i = 0; i < initial_size; i++) {
       points.push(
         p.createVector(
-          (i / (initial_size - 1)) * p.width - p.width / 4,
+          (i / (initial_size - 1)) * p.width - p.width,
           2,
           p.random(-1, 1)
         )
@@ -117,7 +120,6 @@ const sketch = function(p: any) {
 };
 
 // tslint:disable-next-line:no-require-imports
-const canvas = new P5(sketch);
 
 let lstmKernel1: tf.Tensor2D;
 let lstmBias1: tf.Tensor1D;
@@ -217,6 +219,7 @@ if (!isDeviceSupported) {
 //let modelReady = false;
 
 function start() {
+  canvas = new P5(sketch);
   piano
     .load(SALAMANDER_URL)
     .then(() => {
