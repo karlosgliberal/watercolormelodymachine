@@ -6,131 +6,9 @@ console.log(movida);
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
 let canvas;
-
-/***
- * @todo
- * p5 sketch
- * */
-const sketch = function(p: any) {
-  let props: any;
-  let sec: any;
-  let temp: any;
-  let initial_size = 10;
-  let initial_deviation = 10;
-  let histogramnum = 0;
-  let deviation = 8;
-
-  let points: Array<any>;
-  let current: Array<any>;
-
-  p.setOnReady = function(_pr: any, _sec: any, _temp: any) {
-    props = _pr;
-    sec = _sec;
-    temp = _temp;
-  };
-
-  p.setup = function() {
-    p.frameRate(20);
-    let cnv = p.createCanvas(p.windowWidth, p.windowHeight + 1000);
-    cnv.parent('canvas');
-    p.noStroke();
-    p.colorMode(p.HSB);
-    p.blendMode(p.SOFT_LIGHT);
-    //p.blendMode(p.BURN);
-    //p.noLoop();
-  };
-
-  p.draw = function() {
-    p.translate(props * 16.55 - 340, 200 * sec * 0.02);
-    //p.rect(0, 0, 10, 10);
-    if (sec < 5) {
-      p.fill(0, 0, 0, 0.25);
-    } else {
-      p.fill(220, props, 120, temp * 0.2);
-    }
-    init();
-    current = update();
-    display();
-  };
-
-  function init() {
-    points = [];
-    for (var i = 0; i < initial_size; i++) {
-      points.push(
-        p.createVector(
-          (i / (initial_size - 1)) * p.width - p.width,
-          2,
-          p.random(-1, 1)
-        )
-      );
-    }
-    for (let b = 0; b < 3; b++) {
-      interpolate(points, initial_deviation);
-    }
-  }
-
-  function update() {
-    let c = deep_copy(points);
-    for (let b = 0; b < 3; b++) {
-      for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], props * temp * 4);
-      }
-    }
-    return c;
-  }
-
-  function display() {
-    p.beginShape(p.TRIANGLES);
-    for (let i = 0; i < current.length; i++) {
-      p.vertex(current[i].x, current[i].y);
-    }
-    p.vertex(0, 0);
-    p.vertex(0, 0);
-    p.endShape(p.CLOSE);
-  }
-
-  function interpolate(points: any, sd: any) {
-    for (var i = points.length - 1; i > 0; i--) {
-      points.splice(i, 0, generate_midpoint(points[i - 1], points[i], sd));
-    }
-  }
-
-  function generate_midpoint(p1: any, p2: any, sd: any) {
-    let p3 = p.createVector(
-      p1.x + p2.x,
-      p1.y + p2.y,
-      (p1.z + p2.z) * 0.25 * p.randomGaussian(-1, 1)
-    );
-    move_nearby(p3, sd);
-    return p3;
-  }
-
-  let move_nearby = function(pnt: any, sd: any) {
-    pnt.x = p.randomGaussian(pnt.z, pnt.z + sd);
-    pnt.y = p.randomGaussian(pnt.z, pnt.z + sd);
-  };
-
-  let deep_copy = function(arr: any) {
-    let narr = [];
-    for (var i = 0; i < arr.length; i++) {
-      narr.push(arr[i].copy());
-    }
-    return narr;
-  };
-
-  p.keyPressed = function() {
-    if (p.keyCode === 13) {
-      p.save('movida_002.jpg');
-    }
-    if (p.keyCode === 85) {
-      histogramnum++;
-      updateConditioningParams(histogramnum);
-    }
-  };
-};
+let histogramnum = 0;
 
 // tslint:disable-next-line:no-require-imports
-
 let lstmKernel1: tf.Tensor2D;
 let lstmBias1: tf.Tensor1D;
 let lstmKernel2: tf.Tensor2D;
@@ -316,15 +194,6 @@ function updateConditioningParams(numHistogram) {
   let pitchHistogram = pitchHistogramArray[numHistogram][0];
   let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];
 
-  console.log(noteDensityIdxArray[0]);
-
-  // const pitchHistogram = [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1];
-  // const pitchHistogram = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]; //whole-tone
-  // const pitchHistogram = [1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0]; // Re-menor;
-  // const pitchHistogram = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]; //pentatonica;
-  // const pitchHistogram = [0, 0, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0];
-  // const pitchHistogram = [5, 0, 0, 0, 5, 0, 0, 8, 0, 0, 0, 0];
-
   if (noteDensityEncoding != null) {
     noteDensityEncoding.dispose();
     noteDensityEncoding = null;
@@ -351,6 +220,13 @@ function updateConditioningParams(numHistogram) {
   pitchHistogramEncoding = buffer.toTensor();
 }
 updateConditioningParams(0);
+
+document.getElementById('c-major').onclick = () => {
+  console.log('movida');
+
+  histogramnum = histogramnum + 1;
+  updateConditioningParams(histogramnum);
+};
 
 function getConditioning(): tf.Tensor1D {
   return tf.tidy(() => {
