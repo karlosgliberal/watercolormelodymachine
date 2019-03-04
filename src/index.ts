@@ -1,10 +1,16 @@
 import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
+const movida = require('./sketch').sketch;
+console.log(movida);
 
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
 let canvas;
 
+/***
+ * @todo
+ * p5 sketch
+ * */
 const sketch = function(p: any) {
   let props: any;
   let sec: any;
@@ -25,7 +31,7 @@ const sketch = function(p: any) {
 
   p.setup = function() {
     p.frameRate(20);
-    let cnv = p.createCanvas(p.windowWidth, p.windowHeight);
+    let cnv = p.createCanvas(p.windowWidth, p.windowHeight + 1000);
     cnv.parent('canvas');
     p.noStroke();
     p.colorMode(p.HSB);
@@ -223,7 +229,8 @@ if (!isDeviceSupported) {
 //let modelReady = false;
 
 function start() {
-  canvas = new P5(sketch);
+  //canvas = new P5(sketch);
+  canvas = new P5(movida);
   piano
     .load(SALAMANDER_URL)
     .then(() => {
@@ -297,7 +304,8 @@ setTimeout(() => updateConditioningParams(0));
 
 function updateConditioningParams(numHistogram) {
   const pitchHistogramArray = [
-    [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [0]],
+    [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0], [0]],
+    [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [1]],
     [[1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], [5]],
     [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [0]],
     [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [9]],
