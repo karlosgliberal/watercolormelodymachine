@@ -22,14 +22,19 @@ export const sketch = function(p: any) {
     cnv.parent('canvas');
     p.noStroke();
     p.colorMode(p.HSB);
+    //p.rectMode(p.CENTER);
+    // p.rectMode(p.CORNER);
     p.blendMode(p.SOFT_LIGHT);
     //p.blendMode(p.BURN);
     //p.noLoop();
   };
 
   p.draw = function() {
-    p.translate(props * 16.55 - 340, 200 * sec * 0.02);
-    //p.rect(0, 0, 10, 10);
+    //console.log(p.width);
+    let valorTeclaPorcenaje = p.map(props, 21, 108, 0, 98.07);
+    let posicionElemento = p.map(valorTeclaPorcenaje, 0, 97.07, 0, p.width);
+
+    p.translate(posicionElemento, 200 * sec * 0.02);
     if (sec < 5) {
       p.fill(0, 0, 0, 0.25);
     } else {
@@ -108,10 +113,6 @@ export const sketch = function(p: any) {
   p.keyPressed = function() {
     if (p.keyCode === 13) {
       p.save('movida_002.jpg');
-    }
-    if (p.keyCode === 85) {
-      histogramnum++;
-      //updateConditioningParams(histogramnum);
     }
   };
 };
