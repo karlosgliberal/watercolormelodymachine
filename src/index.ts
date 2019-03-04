@@ -1,6 +1,5 @@
 import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
-import { fill } from '@tensorflow/tfjs-core';
 
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
@@ -12,6 +11,7 @@ const sketch = function(p: any) {
   let temp: any;
   let initial_size = 10;
   let initial_deviation = 10;
+  let histogramnum = 0;
   let deviation = 8;
 
   let points: Array<any>;
@@ -115,6 +115,10 @@ const sketch = function(p: any) {
   p.keyPressed = function() {
     if (p.keyCode === 13) {
       p.save('movida_002.jpg');
+    }
+    if (p.keyCode === 85) {
+      histogramnum++;
+      updateConditioningParams(histogramnum);
     }
   };
 };
@@ -289,12 +293,29 @@ function resize() {
 }
 
 resize();
-setTimeout(() => updateConditioningParams());
+setTimeout(() => updateConditioningParams(0));
 
-function updateConditioningParams() {
-  //const pitchHistogram = [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1];
-  //const pitchHistogram = [0, 0, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0];
-  const pitchHistogram = [5, 0, 0, 0, 5, 0, 0, 8, 0, 0, 0, 0];
+function updateConditioningParams(numHistogram) {
+  const pitchHistogramArray = [
+    [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [0]],
+    [[1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], [5]],
+    [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [0]],
+    [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [9]],
+    [[0, 0, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0], [0]],
+    [[5, 0, 0, 0, 5, 0, 0, 8, 0, 0, 0, 0], [0]]
+  ];
+
+  let pitchHistogram = pitchHistogramArray[numHistogram][0];
+  let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];
+
+  console.log(noteDensityIdxArray[0]);
+
+  // const pitchHistogram = [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1];
+  // const pitchHistogram = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0]; //whole-tone
+  // const pitchHistogram = [1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0]; // Re-menor;
+  // const pitchHistogram = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]; //pentatonica;
+  // const pitchHistogram = [0, 0, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0];
+  // const pitchHistogram = [5, 0, 0, 0, 5, 0, 0, 8, 0, 0, 0, 0];
 
   if (noteDensityEncoding != null) {
     noteDensityEncoding.dispose();
@@ -302,7 +323,7 @@ function updateConditioningParams() {
   }
   noteDensityEncoding = tf
     .oneHot(
-      tf.tensor1d([noteDensityIdx + 1], 'int32'),
+      tf.tensor1d([noteDensityIdxArray[0] + 1], 'int32'),
       DENSITY_BIN_RANGES.length + 1
     )
     .as1D();
@@ -321,7 +342,7 @@ function updateConditioningParams() {
   }
   pitchHistogramEncoding = buffer.toTensor();
 }
-updateConditioningParams();
+updateConditioningParams(0);
 
 function getConditioning(): tf.Tensor1D {
   return tf.tidy(() => {
