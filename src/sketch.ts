@@ -35,10 +35,10 @@ export const sketch = function(p: any) {
     let posicionElemento = p.map(valorTeclaPorcenaje, 0, 97.07, 0, p.width);
 
     p.translate(posicionElemento, 200 * sec * 0.02);
-    if (sec < 5) {
+    if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
-      p.fill(220, props, 120, temp * 0.2);
+      p.fill(20, props, 120, temp * 0.2);
     }
     init();
     current = update();
