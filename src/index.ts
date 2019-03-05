@@ -183,7 +183,7 @@ setTimeout(() => updateConditioningParams(0));
 function updateConditioningParams(numHistogram) {
   const pitchHistogramArray = [
     [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [1]],
-    [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [2]],
+    [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [1]],
     [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [2]],
     [[0, 0, 0, 0, 0, 8, 9, 8, 0, 0, 0, 9], [1]],
     [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [1]],
