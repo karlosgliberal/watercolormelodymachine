@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
-      publicPath: '/Users/wintermute/src/creative/pinturaRnn/dist/',
+      publicPath: './dist/',
       filename: 'style.css'
     })
   ]
