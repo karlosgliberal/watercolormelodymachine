@@ -1,5 +1,7 @@
 import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
+// tslint:disable-next-line:no-require-imports
+import './style.scss';
 const movida = require('./sketch').sketch;
 console.log(movida);
 
