@@ -3,7 +3,6 @@ import { KeyboardElement } from './keyboard_element';
 // tslint:disable-next-line:no-require-imports
 import './style.scss';
 const movida = require('./sketch').sketch;
-console.log(movida);
 
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
@@ -106,11 +105,15 @@ if (!isDeviceSupported) {
   start();
 }
 
-//let modelReady = false;
+document.getElementById('start').onclick = () => {
+  canvas = new P5(movida);
+  document.querySelector('#controls').classList.add('hidden');
+  document.querySelector('#keyboard').classList.remove('hidden');
+  resetRnn();
+};
 
 function start() {
   //canvas = new P5(sketch);
-  canvas = new P5(movida);
   piano
     .load(SALAMANDER_URL)
     .then(() => {
@@ -123,7 +126,6 @@ function start() {
     .then((vars: { [varName: string]: tf.Tensor }) => {
       document.querySelector('#status').classList.add('hidden');
       document.querySelector('#controls').classList.remove('hidden');
-      document.querySelector('#keyboard').classList.remove('hidden');
 
       lstmKernel1 = vars[
         'rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel'
@@ -149,7 +151,7 @@ function start() {
       fcB = vars['fully_connected/biases'] as tf.Tensor1D;
       fcW = vars['fully_connected/weights'] as tf.Tensor2D;
       //modelReady = true;
-      resetRnn();
+      //resetRnn();
     });
 }
 
@@ -227,8 +229,6 @@ function updateConditioningParams(numHistogram) {
 updateConditioningParams(0);
 
 document.getElementById('c-major').onclick = () => {
-  console.log('movida');
-
   histogramnum = histogramnum + 1;
   updateConditioningParams(histogramnum);
 };
