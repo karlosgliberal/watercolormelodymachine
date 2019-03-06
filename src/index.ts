@@ -2,6 +2,7 @@ import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
 // tslint:disable-next-line:no-require-imports
 import './style.scss';
+const scalas = require('./scalas').escalas;
 const movida = require('./sketch').sketch;
 
 const Piano = require('tone-piano').Piano;
@@ -86,11 +87,11 @@ let lastSample = tf.scalar(PRIMER_IDX, 'int32');
 const container = document.querySelector('#keyboard');
 const keyboardInterface = new KeyboardElement(container);
 
-const piano = new Piano({ velocities: 4 }).toMaster();
+const piano = new Piano({ velocities: 8 }).toMaster();
 
-const SALAMANDER_URL =
-  'https://storage.googleapis.com/' +
-  'download.magenta.tensorflow.org/demos/SalamanderPiano/';
+const SALAMANDER_URL = 'http://investic.net/SalamanderGrandPiano/mp3/';
+// 'https://storage.googleapis.com/' +
+// 'download.magenta.tensorflow.org/demos/SalamanderPiano/';
 const CHECKPOINT_URL =
   'https://storage.googleapis.com/' +
   'download.magenta.tensorflow.org/models/performance_rnn/tfjs';
@@ -185,18 +186,9 @@ resize();
 setTimeout(() => updateConditioningParams(0));
 
 function updateConditioningParams(numHistogram) {
-  const pitchHistogramArray = [
-    [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [1]],
-    [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [1]],
-    [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [2]],
-    [[0, 0, 0, 0, 0, 8, 9, 8, 0, 0, 0, 9], [1]],
-    [[2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 2, 1], [1]],
-    [[1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], [5]],
-    [[1, 0, 2, 0, 1, 1, 0, 1, 0, 1, 1, 0], [0]],
-    [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [9]],
-    [[0, 0, 0, 6, 7, 8, 0, 0, 0, 0, 0, 0], [0]],
-    [[5, 0, 0, 0, 5, 0, 0, 8, 0, 0, 0, 0], [0]]
-  ];
+  console.log(scalas);
+
+  const pitchHistogramArray = scalas;
 
   let pitchHistogram = pitchHistogramArray[numHistogram][0];
   let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];
