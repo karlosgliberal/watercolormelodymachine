@@ -347,11 +347,6 @@ function playOutput(index: number) {
           }, 100);
         }, (currentPianoTimeSec - piano.now()) * 1000);
         activeNotes.set(noteNum, currentPianoTimeSec);
-        // console.log(
-        //   noteNum,
-        //   currentPianoTimeSec,
-        //   (currentPianoTimeSec * globalGain) / 100
-        // );
         canvas.setOnReady(
           noteNum,
           currentPianoTimeSec,
@@ -366,8 +361,6 @@ function playOutput(index: number) {
         const noteNum = index - offset;
 
         const activeNoteEndTimeSec = activeNotes.get(noteNum);
-        // If the note off event is generated for a note that hasn't been
-        // pressed, just ignore it.
         if (activeNoteEndTimeSec == null) {
           return;
         }
