@@ -188,6 +188,11 @@ window.addEventListener('resize', resize);
 function resize() {
   keyboardInterface.resize();
 }
+window.addEventListener('hashchange', function(){
+  setScaleFromHash();
+  updateConditioningParams(0);
+});
+
 
 resize();
 setTimeout(() => updateConditioningParams(0));
@@ -223,17 +228,19 @@ function updateConditioningParams(numHistogram) {
   }
   pitchHistogramEncoding = buffer.toTensor();
 }
-updateConditioningParams(0);
+//updateConditioningParams(0);
 
 document.getElementById('c-major').onclick = () => {
+  updateHistogram();
+};
+function updateHistogram(){
   colores = colores + 10;
   histogramnum = histogramnum + 1;
   updateConditioningParams(histogramnum);
   if (histogramnum == 3) {
     histogramnum = 0;
   }
-};
-
+}
 function getConditioning(): tf.Tensor1D {
   return tf.tidy(() => {
     if (!conditioned) {
