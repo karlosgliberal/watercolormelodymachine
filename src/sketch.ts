@@ -38,7 +38,7 @@ export const sketch = function(p: any) {
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
-      p.fill(20, props, 120, temp * 0.2);
+      p.fill(220, props, 120, temp * 0.2);
     }
     init();
     current = update();
