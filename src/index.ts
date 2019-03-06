@@ -2,7 +2,7 @@ import * as tf from '@tensorflow/tfjs-core';
 import { KeyboardElement } from './keyboard_element';
 // tslint:disable-next-line:no-require-imports
 import '../assets/style.scss';
-const scalas = require('./scalas').escalas;
+const scalas = require('./scalas').escalasObjetos;
 const movida = require('./sketch').sketch;
 
 const Piano = require('tone-piano').Piano;
@@ -185,9 +185,7 @@ resize();
 setTimeout(() => updateConditioningParams(0));
 
 function updateConditioningParams(numHistogram) {
-  console.log(scalas);
-
-  const pitchHistogramArray = scalas;
+  const pitchHistogramArray = scalas.mayor.escalas;
 
   let pitchHistogram = pitchHistogramArray[numHistogram][0];
   let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];

@@ -2,6 +2,7 @@ export const sketch = function(p: any) {
   let props: any;
   let sec: any;
   let temp: any;
+  let color: any;
   let initial_size = 10;
   let initial_deviation = 10;
   let histogramnum = 0;
@@ -14,6 +15,10 @@ export const sketch = function(p: any) {
     props = _pr;
     sec = _sec;
     temp = _temp;
+  };
+
+  p.setOnColor = function(_color: any) {
+    color = _color;
   };
 
   p.setup = function() {
@@ -38,7 +43,7 @@ export const sketch = function(p: any) {
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
-      p.fill(20, props, 120, temp * 0.2);
+      p.fill(220, props, 120, temp * 0.2);
     }
     init();
     current = update();
