@@ -14,7 +14,6 @@ let colores = 10;
 
 //definimos la escala por defecto.
 const defaultScala = 'mayor';
-//inicializamos la variable con el valor por defecto.
 let currentScala = defaultScala;
 
 // tslint:disable-next-line:no-require-imports
@@ -32,33 +31,19 @@ const forgetBias = tf.scalar(1.0);
 const activeNotes = new Map<number, number>();
 const noteDensityIdx = 1;
 const globalGain = 35;
-
-// How many steps to generate per generateStep call.
-// Generating more steps makes it less likely that we'll lag behind in note
-// generation. Generating fewer steps makes it less likely that the browser UI
-// thread will be starved for cycles.
 const STEPS_PER_GENERATE_CALL = 10;
-// How much time to try to generate ahead. More time means fewer buffer
-// underruns, but also makes the lag from UI change to output larger.
 const GENERATION_BUFFER_SECONDS = 0.5;
-// If we're this far behind, reset currentTime time to piano.now().
 const MAX_GENERATION_LAG_SECONDS = 1;
-// If a note is held longer than this, release it.
 const MAX_NOTE_DURATION_SECONDS = 30;
-
 const NOTES_PER_OCTAVE = 12;
 const DENSITY_BIN_RANGES = [1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0];
 const PITCH_HISTOGRAM_SIZE = NOTES_PER_OCTAVE;
-
 //const RESET_RNN_FREQUENCY_MS = 30000;
 
 let pitchHistogramEncoding: tf.Tensor1D;
 let noteDensityEncoding: tf.Tensor1D;
 let conditioned = true;
-
 let currentPianoTimeSec = 0;
-// When the piano roll starts in browser-time via performance.now().
-
 let currentVelocity = 100;
 
 const MIN_MIDI_PITCH = 0;
@@ -67,7 +52,6 @@ const VELOCITY_BINS = 32;
 const MAX_SHIFT_STEPS = 100;
 const STEPS_PER_SECOND = 100;
 
-// The unique id of the currently scheduled setTimeout loop.
 let currentLoopId = 0;
 
 const EVENT_RANGES = [
@@ -111,17 +95,11 @@ if (!isDeviceSupported) {
     'computer with Chrome/Firefox, or an Android phone with WebGL support.';
 } else {
   //Bind para asegurarnos que esta todo el contenido cargado.
-  document.addEventListener("DOMContentLoaded", start);
+  document.addEventListener('DOMContentLoaded', start);
 }
 
 function start() {
   setScaleFromHash();
-  document.getElementById('start').onclick = () => {
-    canvas = new P5(movida);
-    document.querySelector('#controls').classList.add('hidden');
-    document.querySelector('#keyboard').classList.remove('hidden');
-    resetRnn();
-  };
   //canvas = new P5(sketch);
   piano
     .load(SALAMANDER_URL)
@@ -134,7 +112,6 @@ function start() {
     })
     .then((vars: { [varName: string]: tf.Tensor }) => {
       document.querySelector('#status').classList.add('hidden');
-      document.querySelector('#controls').classList.remove('hidden');
 
       lstmKernel1 = vars[
         'rnn/multi_rnn_cell/cell_0/basic_lstm_cell/kernel'
@@ -161,8 +138,12 @@ function start() {
       fcW = vars['fully_connected/weights'] as tf.Tensor2D;
       //modelReady = true;
       //resetRnn();
+      document.querySelector('#keyboard').classList.remove('hidden');
+      canvas = new P5(movida);
+      resetRnn();
     });
 }
+
 function resetRnn() {
   c = [
     tf.zeros([1, lstmBias1.shape[0] / 4]),
@@ -188,11 +169,10 @@ window.addEventListener('resize', resize);
 function resize() {
   keyboardInterface.resize();
 }
-window.addEventListener('hashchange', function(){
+window.addEventListener('hashchange', function() {
   setScaleFromHash();
   updateConditioningParams(0);
 });
-
 
 resize();
 setTimeout(() => updateConditioningParams(0));
@@ -233,7 +213,7 @@ function updateConditioningParams(numHistogram) {
 document.getElementById('c-major').onclick = () => {
   updateHistogram();
 };
-function updateHistogram(){
+function updateHistogram() {
   colores = colores + 10;
   histogramnum = histogramnum + 1;
   updateConditioningParams(histogramnum);
@@ -422,9 +402,9 @@ function playOutput(index: number) {
 }
 function setScaleFromHash() {
   //cogemos el hash del navegador sin la almoadilla
-  let hash = window.location.hash.replace('#','');
+  let hash = window.location.hash.replace('#', '');
   //verificamos que exista en el objeto scalas
-  if(scalas.hasOwnProperty(hash)){
+  if (scalas.hasOwnProperty(hash)) {
     //Existe: lo asignamos
     currentScala = hash;
   } else {
