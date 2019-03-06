@@ -10,6 +10,11 @@ const P5 = require('p5');
 let canvas;
 let histogramnum = 0;
 
+//definimos la escala por defecto.
+const defaultScala = 'mayor';
+//inicializamos la variable con el valor por defecto.
+let currentScala = defaultScala;
+
 // tslint:disable-next-line:no-require-imports
 let lstmKernel1: tf.Tensor2D;
 let lstmBias1: tf.Tensor1D;
@@ -103,10 +108,12 @@ if (!isDeviceSupported) {
     'We do not yet support your device. Please try on a desktop ' +
     'computer with Chrome/Firefox, or an Android phone with WebGL support.';
 } else {
-  start();
+  //Bind para asegurarnos que esta todo el contenido cargado.
+  document.addEventListener("DOMContentLoaded", start);
 }
 
 function start() {
+  setScaleFromHash();
   document.getElementById('start').onclick = () => {
     canvas = new P5(movida);
     document.querySelector('#controls').classList.add('hidden');
@@ -154,7 +161,6 @@ function start() {
       //resetRnn();
     });
 }
-
 function resetRnn() {
   c = [
     tf.zeros([1, lstmBias1.shape[0] / 4]),
@@ -185,7 +191,7 @@ resize();
 setTimeout(() => updateConditioningParams(0));
 
 function updateConditioningParams(numHistogram) {
-  const pitchHistogramArray = scalas.mayor.escalas;
+  const pitchHistogramArray = scalas[currentScala].escalas;
 
   let pitchHistogram = pitchHistogramArray[numHistogram][0];
   let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];
@@ -399,4 +405,16 @@ function playOutput(index: number) {
     offset += maxValue - minValue + 1;
   }
   throw new Error(`Could not decode index: ${index}`);
+}
+function setScaleFromHash() {
+  //cogemos el hash del navegador sin la almoadilla
+  let hash = window.location.hash.replace('#','');
+  //verificamos que exista en el objeto scalas
+  if(scalas.hasOwnProperty(hash)){
+    //Existe: lo asignamos
+    currentScala = hash;
+  } else {
+    //No existe: ponemos el definido por defecto.
+    currentScala = defaultScala;
+  }
 }
