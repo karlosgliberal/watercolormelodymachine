@@ -3,6 +3,7 @@ import { KeyboardElement } from './keyboard_element';
 // tslint:disable-next-line:no-require-imports
 import '../assets/style.scss';
 const scalas = require('./scalas').escalasObjetos;
+
 const movida = require('./sketch').sketch;
 
 const Piano = require('tone-piano').Piano;
