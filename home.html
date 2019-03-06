@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Wcmm - Water color melody machine </title>
+  <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"  type="text/css"/>
+  <!-- <link  rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.orange-deep_purple.min.css"/> -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Overlay About -->
+  <div class="fullscreen-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="menu--action py-5">
+            <a href="#">Cerrar</a>
+          </div>
+          <h2 class="title--base pb-4">IA Experiment</h2>
+          <p>Suspendisse iaculis tortor quis tortor placerat, id commodo neque placerat. In tempus ut elit et facilisis. Nam eleifend diam in tempor lobortis. Ut ut tristique nulla, eget dapibus felis. Donec sodales eget massa non rhoncus. Nam non nisi id ligula imperdiet faucibus. Aenean placerat pharetra ex id imperdiet. </p>
+          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris bibendum sem, in fermentum eros risus eu justo.</p>
+          <img src="/assets/images/ejemplo.png" alt="Ejemplo" class="img-fluid">
+          <p>In laoreet nunc gravida libero molestie, commodo imperdiet nunc finibus. In metus nisi, suscipit non est eu, faucibus rutrum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla congue, urna ut suscipit porta, ipsum tellus imperdiet ante, sit amet dictum purus diam at orci.
+          </p>
+          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris bibendum sem, in fermentum eros risus eu justo.</p>
+          <img src="/assets/images/ejemplo2.png" alt="Ejemplo" class="img-fluid">
+          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris bibendum sem, in fermentum eros risus eu justo.</p>
+          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris bibendum sem, in fermentum eros risus eu justo.</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--End Overlay -->
+
+  <div class="section--article">
+    <div class="container">
+      <div class="py-5">
+        <div class="d-flex justify-content-center">  <img src="/assets/images/wcmm.png" alt="Water color melody machine"></div>
+        <div class="text-center title--home"><p>Water color melody machine</p></div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <p>Aenean ut dui at velit blandit <strong>maximus a sed urna.</strong> Praesent quis elit sed erat rutrum aliquam posuere vitae metus. Quisque ornare malesuada rhoncus. Praesent quis laoreet mi. Nulla luct</p>
+        </div>
+        <div class="col-md-5">
+          <p>Aenean ut dui at velit blandit <strong>maximus a sed urna.</strong> Praesent quis elit sed erat rutrum aliquam posuere vitae metus. Quisque ornare malesuada rhoncus. Praesent quis laoreet mi. Nulla luct</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center p-5">
+            <div class="menu--action home--link">
+              <a href="#">¿Como funciona?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="d-flex justify-content-end fixed-bottom p-3">
+      <div>
+        <img src="/assets/images/logo-magenta.png" alt="IA Magenta">
+      </div>
+      <div class="align-self-center">
+        <img src="/assets/images/logo-bikolabs.png" alt="Bikolabs">
+      </div>
+    </div>
+
+
+  </footer>
+
+  <script src="main.js"></script>
+  <scrip> </scrip>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js">    </script>
+  <!-- Custom Overlay -->
+  <script>
+  (function() {
+    $(".menu--action").on("click", function() {
+      $(this).toggleClass('open');
+      $('.fullscreen-page').toggleClass('open');
+      $('.section--article').toggleClass('open');
+
+      return $(this).toggleClass('active');
+    });
+  }).call(this);
+</script>
+<!-- Fin Custom Overlay -->
+
+</body>
+</html>

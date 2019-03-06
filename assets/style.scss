@@ -1,8 +1,5 @@
+@import '/bootstrap/bootstrap.scss';
 @import 'keyboard';
-
-body {
-  width           : 100%;
-  margin          : 0;
-  padding         : 0;
-  background-color: black;
-}
+@import 'variables';
+@import 'custom';
+@import 'fonts';
