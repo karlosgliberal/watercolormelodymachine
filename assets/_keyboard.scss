@@ -1,0 +1,172 @@
+#keyboard {
+  display     : block;
+  margin-right: auto;
+  margin-left : auto;
+  transform   : translate(0, 0);
+  width       : calc(100% - 20px);
+  height      : 100px;
+}
+
+#container #glow,
+#container #roll,
+body #glow,
+body #roll {
+  display: none;
+  width  : 100%;
+  height : calc(100% - 130px);
+  top    : 0;
+  left   : 0;
+}
+
+#container #bottom,
+body #bottom {
+  width           : 100%;
+  height          : 30px;
+  bottom          : 0;
+  left            : 0;
+  position        : absolute;
+  background-color: #222;
+  box-shadow      : inset 0 12px 30px -5px rgba(0, 0, 0, 0.75);
+}
+
+#container.focus {
+  -webkit-filter: none;
+  filter: none;
+  opacity: 1;
+}
+
+#keyboard .key {
+  position           : absolute;
+  -webkit-user-select: none;
+  -moz-user-select   : none;
+  -ms-user-select    : none;
+  user-select        : none;
+}
+
+#keyboard .key {
+  height: calc(100% - 2 * 2px);
+  width : 10px;
+  left  : 0;
+  top   : 0;
+}
+
+#keyboard .key.black {
+  z-index: 1;
+  height : 50%;
+}
+
+#keyboard .key.black .fill {
+  background-color: #ccc;
+  width           : calc(100% - 8px);
+  left            : 4px;
+}
+
+#keyboard .key.white {
+  z-index: 0;
+}
+
+#keyboard .key.white .fill {
+  /* background-color: #e5e5e5 */
+}
+
+#keyboard .key .fill {
+  border        : 0.5px solid #999;
+  position      : absolute;
+  top           : 0;
+  left          : 0;
+  width         : 100%;
+  height        : 100%;
+  pointer-events: none;
+  transition    : background-color 0.6s;
+}
+
+#keyboard .key .fill.active {
+  background-color: #fff;
+  transition      : background-color 0s;
+}
+
+#keyboard .key .highlight.ai {
+  background-color: #fff;
+}
+
+#status {
+  z-index     : 10;
+  display     : block;
+  height      : auto;
+  margin-right: auto;
+  margin-left : auto;
+  font-size   : 26px;
+  text-align  : center;
+  line-height : 200px;
+  height      : 200px;
+}
+
+#controls {
+  width     : 100%;
+  text-align: center;
+}
+
+.control {
+  display       : inline-block;
+  vertical-align: middle;
+}
+
+.control .pitch {
+  width: 3em;
+}
+
+#conditioning-controls {
+  display: inline-block;
+}
+
+#conditioning-controls.inactive .conditional {
+  opacity: 0.2;
+}
+
+#conditioning-controls.midicondition .ui-condition {
+  opacity: 0.2;
+}
+
+a.main-title {
+  color          : rgb(66, 66, 66);
+  text-decoration: none;
+}
+
+#midi-in-container,
+#midi-out-container {
+  margin: 10px auto;
+}
+
+#gain-container {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#gain,
+#note-density {
+  width: 150px;
+}
+
+.histogram-bucket {
+  height  : 100px;
+  position: relative;
+}
+
+.histogram-value {
+  width           : 39px;
+  height          : 70px;
+  position        : absolute;
+  bottom          : 0;
+  background-color: green;
+}
+
+#resettingText {
+  font-size : 20px;
+  transition: opacity 1s;
+  text-align: center;
+  margin-top: 15px;
+}
+
+#canvas {
+  top: 38px;
+}
