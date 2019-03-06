@@ -3,6 +3,7 @@ export const sketch = function(p: any) {
   let sec: any;
   let temp: any;
   let color: any;
+  color = 220;
   let initial_size = 10;
   let initial_deviation = 10;
   let histogramnum = 0;
@@ -19,6 +20,7 @@ export const sketch = function(p: any) {
 
   p.setOnColor = function(_color: any) {
     color = _color;
+    console.log(color);
   };
 
   p.setup = function() {
@@ -43,7 +45,7 @@ export const sketch = function(p: any) {
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
-      p.fill(220, props, 120, temp * 0.2);
+      p.fill(color, props, 120, temp * 0.2);
     }
     init();
     current = update();
@@ -104,7 +106,7 @@ export const sketch = function(p: any) {
 
   let move_nearby = function(pnt: any, sd: any) {
     pnt.x = p.randomGaussian(pnt.z, pnt.z + sd);
-    pnt.y = p.randomGaussian(pnt.z, pnt.z + sd);
+    pnt.y = p.randomGaussian(pnt.z, pnt.y * 0.2 + sd);
   };
 
   let deep_copy = function(arr: any) {

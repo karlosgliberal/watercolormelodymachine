@@ -3,12 +3,14 @@ import { KeyboardElement } from './keyboard_element';
 // tslint:disable-next-line:no-require-imports
 import '../assets/style.scss';
 const scalas = require('./scalas').escalasObjetos;
+
 const movida = require('./sketch').sketch;
 
 const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
 let canvas;
 let histogramnum = 0;
+let colores = 10;
 
 //definimos la escala por defecto.
 const defaultScala = 'mayor';
@@ -224,8 +226,12 @@ function updateConditioningParams(numHistogram) {
 updateConditioningParams(0);
 
 document.getElementById('c-major').onclick = () => {
+  colores = colores + 10;
   histogramnum = histogramnum + 1;
   updateConditioningParams(histogramnum);
+  if (histogramnum == 3) {
+    histogramnum = 0;
+  }
 };
 
 function getConditioning(): tf.Tensor1D {
@@ -325,6 +331,7 @@ async function generateStep(loopId: number) {
  * Decode the output index and play it on the piano and keyboardInterface.
  */
 function playOutput(index: number) {
+  canvas.setOnColor(colores);
   let offset = 0;
   for (const eventRange of EVENT_RANGES) {
     const eventType = eventRange[0] as string;
