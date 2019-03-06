@@ -87,7 +87,7 @@ let lastSample = tf.scalar(PRIMER_IDX, 'int32');
 const container = document.querySelector('#keyboard');
 const keyboardInterface = new KeyboardElement(container);
 
-const piano = new Piano({ velocities: 8 }).toMaster();
+const piano = new Piano({ velocities: 4 }).toMaster();
 
 const SALAMANDER_URL = 'http://investic.net/SalamanderGrandPiano/mp3/';
 // 'https://storage.googleapis.com/' +
