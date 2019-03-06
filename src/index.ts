@@ -106,14 +106,13 @@ if (!isDeviceSupported) {
   start();
 }
 
-document.getElementById('start').onclick = () => {
-  canvas = new P5(movida);
-  document.querySelector('#controls').classList.add('hidden');
-  document.querySelector('#keyboard').classList.remove('hidden');
-  resetRnn();
-};
-
 function start() {
+  document.getElementById('start').onclick = () => {
+    canvas = new P5(movida);
+    document.querySelector('#controls').classList.add('hidden');
+    document.querySelector('#keyboard').classList.remove('hidden');
+    resetRnn();
+  };
   //canvas = new P5(sketch);
   piano
     .load(SALAMANDER_URL)

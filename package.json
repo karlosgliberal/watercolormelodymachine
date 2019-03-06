@@ -7,10 +7,8 @@
   },
   "dependencies": {
     "@tensorflow/tfjs-core": "0.8.0",
-    "browserify-livereload": "^1.0.10",
     "p5": "^0.6.1",
-    "tone-piano": "^0.0.12",
-    "watchify": "^3.11.0"
+    "tone-piano": "^0.0.12"
   },
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
