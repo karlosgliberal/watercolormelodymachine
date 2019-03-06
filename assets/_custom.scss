@@ -1,0 +1,79 @@
+html {
+  -ms-text-size-adjust    : 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size               : 100%;
+}
+
+body {
+  background-color: black;
+  color           : white;
+  font-family     : $fontsecondary;
+  font-size       : 16px;
+}
+
+a {
+  color          : white;
+  text-decoration: underline;
+
+  &:hover {}
+}
+
+.title--base {
+  font-family: $fontprimary;
+  font-size  : 46px;
+}
+
+.home--link {
+  font-size: 20px;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+p {
+  line-height: 1.9;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.fullscreen-page {
+  height          : 100%;
+  width           : 100%;
+  background-color: $dark;
+  position        : fixed;
+  left            : 0;
+  top             : 0;
+  opacity         : 0;
+  transition      : 0.25s;
+  z-index         : -1111111;
+}
+
+.fullscreen-page.open {
+  opacity : 1;
+  z-index : 999999999;
+  overflow: scroll;
+}
+
+.section--article.open {
+  opacity: 0;
+}
+
+.section--article {
+  opacity: 1;
+}
+
+.menu--action {
+  display: inline-block;
+}
+
+.title--home {
+  font-size  : 26px;
+  font-family: $fontprimary;
+}
