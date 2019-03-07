@@ -15,7 +15,9 @@ a {
   color          : white;
   text-decoration: underline;
 
-  &:hover {}
+  &:hover {
+    
+  }
 }
 
 .title--base {
@@ -76,4 +78,11 @@ p {
 .title--home {
   font-size  : 26px;
   font-family: $fontprimary;
+}
+
+.test {
+  &:hover {
+    background-color: $white;
+    font-family: $fontprimary;
+  } 
 }
