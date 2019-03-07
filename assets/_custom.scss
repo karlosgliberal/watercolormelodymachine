@@ -97,13 +97,19 @@ p {
   a {
     text-decoration: none;
   }
-
-  // div:first-child {
-  //   &::after {
-  //     content: " \00b7";
-  //   }
-  // }
 .active {
 
   }
 }
+
+.spinner-color-white {
+  color: $white !important;
+}
+
+.machine--control {
+  height: 50px;
+  border-top: 1px solid;
+}
+
+
+
