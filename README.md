@@ -1,3 +1,3 @@
 ### TODO
 
-- webpack html y asests
+- DONE: webpack html y asests

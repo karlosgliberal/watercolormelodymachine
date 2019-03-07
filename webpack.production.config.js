@@ -2,6 +2,8 @@
 const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -32,7 +34,7 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
     ]
   },
   resolve: {
@@ -43,6 +45,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       publicPath: './dist/',
       filename: 'style.css'
-    })
+    }),
+    new CopyPlugin([
+      { from: 'assets/images', to:'assets/images' },
+      { from: 'index.html'},
+      { from: 'wcmm.html'},
+  ])
   ]
 };
