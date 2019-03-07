@@ -3,15 +3,27 @@ const path = require('path');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = {
-  devtool: 'inline-source-map',
+  //devtool: 'inline-source-map',
   entry: './src/index.ts',
   output: {
     pathinfo: false
   },
   mode: 'production',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   module: {
     rules: [
       {
@@ -50,6 +62,12 @@ module.exports = {
       { from: 'assets/images', to:'assets/images' },
       { from: 'index.html'},
       { from: 'wcmm.html'},
-  ])
+    ]),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      },
+      test: /\.(jpe?g|png|gif|svg)$/i
+    })
   ]
 };
