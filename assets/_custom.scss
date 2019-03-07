@@ -13,10 +13,11 @@ body {
 
 a {
   color          : white;
-  text-decoration: underline;
+  transition: 0.3s;
 
   &:hover {
-    
+    color:$colorsecon;
+  
   }
 }
 
@@ -29,10 +30,12 @@ a {
   font-size: 20px;
 
   a {
-    text-decoration: none;
+   border-bottom: 1px solid $white;
 
     &:hover {
-      opacity: 0.5;
+       border-bottom: 1px solid $colorsecon;
+       opacity: 0.5;
+      text-decoration: none;
     }
   }
 }
@@ -73,6 +76,12 @@ p {
 
 .menu--action {
   display: inline-block;
+  transition: 0.3s;
+  cursor: pointer;
+  :hover {
+
+    opacity: 0.5;
+  }
 }
 
 .title--home {
@@ -80,9 +89,21 @@ p {
   font-family: $fontprimary;
 }
 
-.test {
-  &:hover {
-    background-color: $white;
-    font-family: $fontprimary;
-  } 
+
+
+.menu--language {
+  font-size: 14px;
+  font-family: $fontprimary;
+  a {
+    text-decoration: none;
+  }
+
+  // div:first-child {
+  //   &::after {
+  //     content: " \00b7";
+  //   }
+  // }
+.active {
+
+  }
 }
