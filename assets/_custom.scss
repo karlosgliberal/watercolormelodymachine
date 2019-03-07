@@ -17,7 +17,7 @@ a {
 
   &:hover {
     color:$colorsecon;
-  
+  text-decoration: none;
   }
 }
 
@@ -119,6 +119,32 @@ p {
   background-image: linear-gradient(-242deg, #000000 0%, #111111 98%);
   height: 50px;
   border-top: 1px solid #303030;
+
+a {
+
+color: white;
+  padding-bottom: .25em;
+  text-decoration: none;
+}
+
+a:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 20%;
+  border-bottom: 0;
+  padding-bottom: .3em;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
 }
 
 .machine--control__btn {
