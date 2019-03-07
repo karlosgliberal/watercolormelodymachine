@@ -21,6 +21,15 @@ a {
   }
 }
 
+.hidden {
+    display: none!important
+}
+
+::selection {
+    background: #b95036;
+    text-shadow: none
+}
+
 .title--base {
   font-family: $fontprimary;
   font-size  : 46px;
@@ -108,7 +117,7 @@ p {
 
 .machine--control {
   height: 50px;
-  border-top: 1px solid;
+  border-top: 1px solid #303030;
 }
 
 
