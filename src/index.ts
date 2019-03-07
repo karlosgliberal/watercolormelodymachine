@@ -10,7 +10,6 @@ const Piano = require('tone-piano').Piano;
 const P5 = require('p5');
 let canvas;
 let histogramnum = 0;
-let colores = 10;
 
 //definimos la escala por defecto.
 const defaultScala = 'mayor';
@@ -30,7 +29,6 @@ let fcB: tf.Tensor1D;
 let fcW: tf.Tensor2D;
 const forgetBias = tf.scalar(1.0);
 const activeNotes = new Map<number, number>();
-const noteDensityIdx = 1;
 const globalGain = 35;
 const STEPS_PER_GENERATE_CALL = 10;
 const GENERATION_BUFFER_SECONDS = 0.5;
