@@ -106,7 +106,7 @@ export const sketch = function(p: any) {
 
   let move_nearby = function(pnt: any, sd: any) {
     pnt.x = p.randomGaussian(pnt.z, pnt.z + sd);
-    pnt.y = p.randomGaussian(pnt.z, pnt.y * 0.2 + sd);
+    pnt.y = p.randomGaussian(pnt.z, pnt.z + sd);
   };
 
   let deep_copy = function(arr: any) {

@@ -15,6 +15,7 @@ let colores = 10;
 //definimos la escala por defecto.
 const defaultScala = 'mayor';
 let currentScala = defaultScala;
+let currentColor = 0;
 
 // tslint:disable-next-line:no-require-imports
 let lstmKernel1: tf.Tensor2D;
@@ -173,12 +174,14 @@ window.addEventListener('hashchange', function() {
   setScaleFromHash();
   updateConditioningParams(0);
 });
-
 resize();
+
 setTimeout(() => updateConditioningParams(0));
 
 function updateConditioningParams(numHistogram) {
   const pitchHistogramArray = scalas[currentScala].escalas;
+  const timeoutEscalas = scalas[currentScala].timeout;
+  currentColor = scalas[currentScala].color;
 
   let pitchHistogram = pitchHistogramArray[numHistogram][0];
   let noteDensityIdxArray = pitchHistogramArray[numHistogram][1];
@@ -207,20 +210,21 @@ function updateConditioningParams(numHistogram) {
     buffer.set(pitchHistogram[i] / pitchHistogramTotal, i);
   }
   pitchHistogramEncoding = buffer.toTensor();
-}
-//updateConditioningParams(0);
 
-document.getElementById('c-major').onclick = () => {
-  updateHistogram();
-};
+  //updateHistogram();
+  setTimeout(() => updateHistogram(), timeoutEscalas);
+}
+
+//Para porsiaca ahora es el sitema del color
 function updateHistogram() {
-  colores = colores + 10;
+  // colores = colores + 10;
   histogramnum = histogramnum + 1;
   updateConditioningParams(histogramnum);
   if (histogramnum == 3) {
     histogramnum = 0;
   }
 }
+
 function getConditioning(): tf.Tensor1D {
   return tf.tidy(() => {
     if (!conditioned) {
@@ -318,7 +322,8 @@ async function generateStep(loopId: number) {
  * Decode the output index and play it on the piano and keyboardInterface.
  */
 function playOutput(index: number) {
-  canvas.setOnColor(colores);
+  canvas.setOnColor(currentColor);
+
   let offset = 0;
   for (const eventRange of EVENT_RANGES) {
     const eventType = eventRange[0] as string;
@@ -400,6 +405,7 @@ function playOutput(index: number) {
   }
   throw new Error(`Could not decode index: ${index}`);
 }
+
 function setScaleFromHash() {
   //cogemos el hash del navegador sin la almoadilla
   let hash = window.location.hash.replace('#', '');
