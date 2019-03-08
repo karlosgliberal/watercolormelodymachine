@@ -121,10 +121,5 @@ export const sketch = function(p: any) {
     if (p.keyCode === 13) {
       p.save('movida_002.jpg');
     }
-    if (p.keyCode === 82) {
-      console.log('r');
-
-      p.translate(0, 200);
-    }
   };
 };
