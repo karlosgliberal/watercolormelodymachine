@@ -79,9 +79,10 @@ const keyboardInterface = new KeyboardElement(container);
 
 const piano = new Piano({ velocities: 4 }).toMaster();
 
-const SALAMANDER_URL = 'http://investic.net/SalamanderGrandPiano/mp3/';
-// 'https://storage.googleapis.com/' +
-// 'download.magenta.tensorflow.org/demos/SalamanderPiano/';
+// const SALAMANDER_URL = 'http://investic.net/SalamanderGrandPiano/mp3/';
+const SALAMANDER_URL =
+  'https://storage.googleapis.com/' +
+  'download.magenta.tensorflow.org/demos/SalamanderPiano/';
 const CHECKPOINT_URL =
   'https://storage.googleapis.com/' +
   'download.magenta.tensorflow.org/models/performance_rnn/tfjs';
