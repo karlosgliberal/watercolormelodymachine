@@ -169,7 +169,7 @@
               Performace_rnn nos da la improvisación al piano. Una red neuronal
               recurrente (RNN) que podríamos simplificar diciendo que es una red
               neuronal con memoria, lo que nos aporta es que dada una serie
-              concreta (texto, temperaturas, notas) la red neuronal no ofrecerá
+              concreta (texto, temperaturas, notas) la red neuronal nos ofrecerá
               el “supuesto” siguiente elemento de la serie. En nuestro caso es
               una nota MIDI pero con su expresividad y su dinámica, como cuando
               lo hace un intérprete real cuando pulsa el teclado en un piano.
@@ -301,6 +301,25 @@
               sus codigos son fudamentales para el arte generativo y la base
               inicial del trazo
             </p>
+            <p>
+              The digital or generative art is like a rhizome where everything
+              is it intertwines creating strong or weak nodes but which as a
+              whole they create a complex network and it is enough in nuances.
+              This project has many inspirations but these were bound to
+              mention.
+              <a
+                href="https://medium.com/@zachlieberman/daily-sketches-in-2017-1b4234b0615d"
+              >
+                @zachlieberman </a
+              >Explaining his daily creative process inspired me to seek the my
+              own
+              <a href="https://twitter.com/kolorexpresion"> Iñaki zalba</a> with
+              his vision of the game and the spaces prepared. Kjetil Golid with
+              his
+              <a href="https://generated.space/">https://generated.space/ </a>
+              their codes are fundamental to generative art and the basis of the
+              initial stroke
+            </p>
           </div>
         </div>
       </div>
@@ -322,7 +341,196 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 offset-md-1 post--content">
-            <h2 class="title--base pb-4">ES IA Experiment</h2>
+            <h2 class="title--base pb-4">About</h2>
+            <p>
+              What creative possibilities does machine learning offer? <br />
+              WCMM is a creative process using Machine learning. This machine is
+              a artificial intelligence that improvises at the piano while
+              painting.
+            </p>
+            <p>
+              To create WCMM we used
+              <a href="https://magenta.tensorflow.org/">Magenta</a> which is a
+              an open-source research project that explores paper of machine
+              learning as a creative tool.
+            </p>
+
+            <p>
+              We have been working with machine learning for some time now for
+              our projects as in the case of the
+              <a href="https://ciberbarba.biko2.com">ciberbarba</a> or
+              previously in
+              <a href="https://receteitor.interzonas.info">receitor </a>.<br />
+              WCMM is another approach to this game.
+            </p>
+            <h2 class="title--base pb-4">How it works</h2>
+            <p>
+              We have used performace_rnn that seeks to generate music taking
+              care of the expressiveness in time and dynamics. This research has
+              been created by
+              <a href="https://twitter.com/iansimon"> iansimon</a>
+              <a href="https://twitter.com/osageev"> osageev</a> and here it is.
+              paper of the project:
+              <a href="https://magenta.tensorflow.org/performance-rnn"
+                >https://magenta.tensorflow.org/performance-rnn</a
+              >
+            </p>
+            <p>
+              Expressiveness in time and dynamics are an essential part of music
+              and this particularity made us want to play with performace_rnn.
+              To understand the importance of expressiveness and dynamics listen
+              to the following two clips from the same piece of Chopin,the first
+              of whom has been stripped of these qualities:
+            </p>
+            <div class="d-flex justify-content-around py-3">
+              <div>
+                <p>Chopin (quantized)</p>
+                <audio
+                  src="/assets/performance_rnn/chopin-quantized.mp3"
+                  controls=""
+                ></audio>
+              </div>
+              <div>
+                <p>
+                  Chopin (performed by Sageev Oore)
+                </p>
+                <audio
+                  src="/assets/performance_rnn/chopin-unquantized.mp3"
+                  controls=""
+                ></audio>
+              </div>
+            </div>
+
+            <p>
+              Subtlety or forcefulness by pressing the piano key or lengthening
+              notes is a creative element that pianists count on for your
+              interpretations, your sensitivity is fundamental so that we can
+              feel emotions.
+            </p>
+
+            <p>
+              So can we create machines loaded with sensitivity?
+            </p>
+
+            <p>
+              Performace_rnn gives us improvisation at the piano. A neural
+              network (RNN) that we could simplify by saying that it is a
+              network. neuronal with memory, what it gives us is that given a
+              series of concrete (text, temperatures, notes) the neural network
+              will offer us the next "supposed" element in the series. In our
+              case it is a MIDI note but with its expressiveness and its
+              dynamics, as when a real interpreter does when he presses the
+              keyboard on a piano.
+            </p>
+
+            <p>
+              Performace_rnn supports a number of settings, such as temperature
+              or the density of pulsation, scale and its tonic note but in our
+              If this is delegated to the client managed by the browser.
+            </p>
+            <h2 class="title--base pb-4">Tensorflow.js - Magenta</h2>
+            <p>
+              In the repository of the
+              <a
+                href="https://github.com/tensorflow/magenta/tree/master/magenta/models/performance_rnn"
+              >
+                proyecto</a
+              >
+              there is the python code as well as the colab to be able to
+              experiment with the model. We have used a pre-trained model to use
+              them with
+              <a href="https://www.tensorflow.org/js"> Tensorflow.js</a>.
+              TensorFlow.js is a library for developing and training ML models
+              in JavaScript, and display in the browser or in Node.js
+            </p>
+            <p>
+              With tensorflow.js and from the browser is where we load the model
+              RNN of Magenta and where we are modifying the settings as for
+              example the pitch_class_histogram: That a string representation of
+              a 12 values representing the relative frequency of the notes for
+              each tone class, beginning with C (C). For example: 2, 0, 1, 0, 1,
+              1, 0, 1, 1, 0, 1, 0, 1] The RNN "will tend to adhere". to a scale
+              of C greater, with twice as much C as any of the others. other
+              notes on the scale.
+            </p>
+            <script src="https://gist.github.com/karlosgliberal/a5207cc4ff18b8c58aec1ca91d8e1d92.js"></script>
+
+            <h2 class="title--base pb-4">How it works</h2>
+            <p>
+              We use <a href="https://tonejs.github.io/">tone.js</a> to be able
+              to touch the browser and in the case of perfromance_rnn we use the
+              sound base of Salamander Grand Piano with the project tone-piano
+              that gives us that management of speed and dynamics.
+            </p>
+            <h2 class="title--base pb-4">P5.js</h2>
+            <p>
+              WCMM is born as a project of generative art, there are many
+              artists who are using machine learning in order to be able to
+              create different works. For us generative art is
+              <i>
+                When the artist enters into collaboration with some sort of
+                automaton, and resigns the power to decide every single detail
+                of the what happens in the work, that dialogue is the one that
+                allows the generative.</i
+              >
+            </p>
+            <p>
+              Our automaton is the recurrent neural network that plays the piano
+              and his sensitivity is what we use to create the stroke.
+            </p>
+            <p>
+              For the visual creation we have used p5.js is one of the projects
+              of the internet, your community and your possibilities are
+              unbelievable.
+            </p>
+            <p>
+              The line with which we emulate the watercolor works by creating a
+              set of translucent vertices with a mixture of colours simulates a
+              watercolor. The process of experimentation to achieve the best
+              possible stroke is part of the project, create a prepared
+              environment where you can play and express yourself with the code
+              is part of the project, here you can see some of the experiments.
+            </p>
+
+            <img
+              src="/assets/images/imagenProcesoTrazo.png"
+              alt="Ejemplo"
+              class="img-fluid"
+            />
+            <p>
+              With the stroke resolved the following element was to relate the
+              improvisation of the performance_rnn with this stroke, that each
+              note sent from tensorflow.js, generate an animation and that this
+              one is is represented by the characteristics of the note the
+              moment and the dynamics of it.
+            </p>
+            <p>
+              This in combination with the scales allow us to create the stories
+              and then combine them with each other to create unique canvases in
+              every viewing.
+            </p>
+            <h2 class="title--base pb-4">Autors</h2>
+            <p>
+              Created by
+              <a href="https://medium.com/@patxangas"
+                >Karlos G Libreal @patxangas</a
+              >
+              and carried out with the help, as always, ofe
+              <a href="https://twitter.com/aitor_rl">Aitor Resano</a>,
+              <a href="https://twitter.com/merisu"> Miren Arrese</a> y
+              <a href="https://twitter.com/oierbravo"> Oier bravo</a>.
+            </p>
+
+            <h2 class="title--base pb-4">Bikolabs</h2>
+            <p>
+              It's the
+              <a href="https://www.biko2.com/bikolabs-creatividad-pirata/">
+                speculation laboratory </a
+              >from <a href="https://www.biko2.com"> Biko </a>we search in the
+              creative peripheries new experiences and new crossbreeds for to be
+              able to see 20 minutes ahead.
+            </p>
+            <h2 class="title--base pb-4">Inspiration</h2>
           </div>
         </div>
       </div>
