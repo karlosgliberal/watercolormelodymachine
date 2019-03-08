@@ -75,6 +75,25 @@ p {
   overflow: scroll;
 }
 
+
+.fullscreen-page__es {
+  height          : 100%;
+  width           : 100%;
+  background-color: $dark;
+  position        : fixed;
+  left            : 0;
+  top             : 0;
+  opacity         : 0;
+  transition      : 0.25s;
+  z-index         : -1111111;
+}
+
+.fullscreen-page__es.open {
+  opacity : 1;
+  z-index : 999999999;
+  overflow: scroll;
+}
+
 .wcmm--wrap.open {
   opacity: 0;
 }
@@ -84,6 +103,13 @@ p {
 }
 
 .menu--action {
+  display: inline-block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+.menu--action__es {
   display: inline-block;
   transition: 0.3s;
   cursor: pointer;
@@ -225,4 +251,21 @@ a.machine--control__btn-down {
 
 .machine--control__logo {
   width: 20%;
+}
+
+
+.mobile--notification {
+    @include media-breakpoint-down (md) {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1111111;
+    background-color: black;
+  }
+}
+
+
+.mobile--notification__wrap {
+width: 100%;
 }
