@@ -55,8 +55,9 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: 'assets/images' },
-      { from: 'index.html'},
-      { from: 'wcmm.html'},
-  ])
+      { from: 'index.html' },
+      { from: 'index_es.html' },
+      { from: 'wcmm.html' }
+    ])
   ]
 };
