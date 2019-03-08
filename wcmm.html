@@ -49,8 +49,11 @@
         <div class="pr-2">
           <div class="menu--action"><a href="" class="machine--control__btn">Reset</a></div>
         </div>
+        <div class="pr-2">
+          <div class="menu--action "><a href="#" class="machine--control__btn">About EN</a></div>
+        </div>
         <div>
-          <div class="menu--action "><a href="#" class="machine--control__btn">About</a></div>
+          <div class="menu--action__es"><a href="#" class="machine--control__btn">About ES</a></div>
         </div>
       </div>
     </div>
@@ -113,11 +116,27 @@
   </div>
   <!--End Overlay -->
 
+  <!--Overlay ES -->
+  <div class="fullscreen-page__es">
 
+    <div class="post--header d-flex justify-content-between align-items-center sticky-top">
+      <div>
+        <img src="/assets/images/wcmm-min.png" alt="Wcmm">
+      </div>
+      <div class="menu--action__es pr-2">
+        <img src="assets/images/close.png" alt="Cerrar">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <h2 class="title--base pb-4">ES IA Experiment</h2>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-
+  <!--Fin Overlay ES -->
 
 
 
@@ -130,7 +149,14 @@
         $(this).toggleClass('open');
         $('.fullscreen-page').toggleClass('open');
         $('.wcmm--wrap').toggleClass('open');
-
+        return $(this).toggleClass('active');
+      });
+    }).call(this);
+    (function () {
+      $(".menu--action__es").on("click", function () {
+        $(this).toggleClass('open');
+        $('.fullscreen-page__es').toggleClass('open');
+        $('.wcmm--wrap').toggleClass('open');
         return $(this).toggleClass('active');
       });
     }).call(this);
