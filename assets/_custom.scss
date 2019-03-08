@@ -36,7 +36,7 @@ a {
 }
 
 .home--link {
-  font-size: 20px;
+  font-size: 26px;
 
   a {
    border-bottom: 1px solid $white;
@@ -92,6 +92,10 @@ p {
 .title--home {
   font-size  : 26px;
   font-family: $fontprimary;
+
+  p {
+  line-height: 1;
+  }
 }
 
 
@@ -122,6 +126,8 @@ p {
 .home--text {
   p {
     font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
   }
 }
 
@@ -188,11 +194,11 @@ a.machine--control__btn-down {
 
 .home--atrib {
   p {
- font-size: 10px;
+ font-size: 12px;
   }
  
   a {
-    // color: purple;
+    text-decoration: underline;
   }
 }
 
