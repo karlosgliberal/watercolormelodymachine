@@ -1,182 +1,356 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wcmm - Water color melody machine</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Wcmm - Water color melody machine </title>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
-  <meta name="description" content="">
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <div class="wcmm--wrap">
+      <div id="container">
+        <div id="keyboard" class="hidden"></div>
+        <div class="point"></div>
+      </div>
 
-<body>
+      <div id="status">
+        <div class="d-flex flex-column align-items-center">
+          <div class="spinner-border spinner-color-white" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
 
-  <div class="wcmm--wrap">
+      <div id="canvas"></div>
 
-
-    <div id="container">
-      <div id="keyboard" class="hidden"></div>
-      <div class="point"></div>
-    </div>
-
-    <div id="status">
-      <div class="d-flex flex-column align-items-center">
-        <div class="spinner-border spinner-color-white" role="status">
-          <span class="sr-only">Loading...</span>
+      <div
+        class="machine--control fixed-bottom d-flex align-items-center justify-content-between"
+      >
+        <div class="machine--control__logo">
+          <a href="/"><img src="assets/images/wcmm-min.png" alt="wcmm"/></a>
+        </div>
+        <div class="machine--control__select">
+          <div class="d-flex justify-content-center">
+            <div class="selection--item">
+              <a href="#menor"
+                ><img src="assets/images/icon-moon-min.svg" alt="Moon"
+              /></a>
+            </div>
+            <div class="selection--item">
+              <a href="#mayor"
+                ><img src="assets/images/icon-sun-min.svg" alt="Sun"
+              /></a>
+            </div>
+            <div class="selection--item">
+              <a href="#oriental"
+                ><img src="assets/images/icon-mountain-min.svg" alt="Mountain"
+              /></a>
+            </div>
+            <div class="selection--item">
+              <a href="#binario"
+                ><img src=" assets/images/icon-binary-min.svg" alt="Binary"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="machine--control__links d-flex px-4">
+          <div class="menu--action pr-4">
+            <a href="" class="machine--control__btn-down">Download canvas</a>
+          </div>
+          <div class="pr-2">
+            <div class="menu--action">
+              <a href="" class="machine--control__btn">Reset</a>
+            </div>
+          </div>
+          <div class="pr-2">
+            <div class="menu--action ">
+              <a href="#" class="machine--control__btn">About EN</a>
+            </div>
+          </div>
+          <div>
+            <div class="menu--action__es">
+              <a href="#" class="machine--control__btn">About ES</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div id="canvas"></div>
-
-    <div class="machine--control fixed-bottom d-flex align-items-center justify-content-between">
-      <div class="machine--control__logo"><a href="/"><img src="assets/images/wcmm-min.png" alt="wcmm"></a>
-
-      </div>
-      <div class="machine--control__select">
-        <div class="d-flex justify-content-center">
-          <div class="selection--item"><a href="#mayor"><img src="assets/images/icon-moon-min.svg" alt="Moon"></a></div>
-          <div class="selection--item"><a href="#menor"><img src="assets/images/icon-sun-min.svg" alt="Sun"></a></div>
-          <div class="selection--item"><a href="#oriental"><img src="assets/images/icon-mountain-min.svg"
-                alt="Mountain"></a></div>
-          <div class="selection--item"><a href="#binario"><img src=" assets/images/icon-binary-min.svg"
-                alt="Binary"></a></div>
-
-        </div>
-      </div>
-      <div class="machine--control__links d-flex px-4">
-        <div class="menu--action pr-4">
-          <a href="" class="machine--control__btn-down">Download canvas</a>
-        </div>
-        <div class="pr-2">
-          <div class="menu--action"><a href="" class="machine--control__btn">Reset</a></div>
-        </div>
-        <div class="pr-2">
-          <div class="menu--action "><a href="#" class="machine--control__btn">About EN</a></div>
-        </div>
+    <!--Overlay ES -->
+    <div class="fullscreen-page__es">
+      <div
+        class="post--header d-flex justify-content-between align-items-center sticky-top"
+      >
         <div>
-          <div class="menu--action__es"><a href="#" class="machine--control__btn">About ES</a></div>
+          <img src="/assets/images/wcmm-min.png" alt="Wcmm" />
+        </div>
+        <div class="menu--action__es pr-2">
+          <img src="assets/images/close.png" alt="Cerrar" />
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Overlay About -->
-  <div class="fullscreen-page">
-      <a href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-    <div class="post--header d-flex justify-content-between align-items-center sticky-top">
-      <div>
-        <img src="/assets/images/wcmm-min.png" alt="Wcmm">
-      </div>
-      <div class="menu--action pr-2">
-        <img src="assets/images/close.png" alt="Cerrar">
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 offset-md-1 post--content">
-          <h3 class="title--base pb-4">IA Experiment</h3>
-          <p>Suspendisse iaculis tortor quis tortor placerat, id commodo neque placerat. In tempus ut elit et
-            facilisis.
-            Nam eleifend diam in<strong>tempor lobortis.</strong> Ut ut tristique nulla, eget dapibus felis. Donec
-            sodales eget massa
-            non rhoncus. Nam non nisi id ligula imperdiet faucibus. <a href="">Aenean</a> placerat pharetra ex id
-            imperdiet.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 post--content">
+            <h2 class="title--base pb-4">About</h2>
+            <p>
+              ¿Que posibilidades creativas ofrece el machine learning? WCMM es
+              un proceso creativo usando Machine learning. Está maquina es una
+              inteligencia artificial que improvisa al piano mientras pinta.
+            </p>
+            <p>
+              Para crear WCMM hemos usado
+              <a href="https://magenta.tensorflow.org/">Magenta</a> que es un
+              proyecto de investigación de código abierto que explora el papel
+              del aprendizaje automático como herramienta creativa.
+            </p>
 
-          <div class="d-flex justify-content-around py-3">
-            <div>
-              <p>Uno</p>
-              <audio src="/assets/performance_rnn/chopin-quantized.mp3" controls=""> </audio>
+            <p>
+              Llevamos tiempo trabajando con machine learning para nuestros
+              proyectos como en el caso del
+              <a href="https://ciberbarba.biko2.com">ciberbarba</a> o
+              anteriormente en
+              <a href="https://receteitor.interzonas.info">receteitor</a>.<br />
+              WCMM es otra aproximación a este juego.
+            </p>
+            <h2 class="title--base pb-4">Como funciona</h2>
+            <p>
+              Hemos usado performace_rnn que busca generar música teniendo en
+              cuenta la expresividad en el tiempo y la dinámica esta
+              investigación ha sido creada por
+              <a href="https://twitter.com/iansimon"> iansimon</a>
+              <a href="https://twitter.com/osageev"> osageev</a> y aqui esta el
+              paper del proyecto:
+              <a href="https://magenta.tensorflow.org/performance-rnn"
+                >https://magenta.tensorflow.org/performance-rnn</a
+              >
+            </p>
+            <p>
+              La expresividad en el tiempo y la dinámica son una parte esencial
+              de la música y esta particularidad nos hizo querer jugar con
+              performace_rnn. Para entender la importancia de la expresividad y
+              la dinámica escuche los siguientes dos clips de la misma pieza de
+              Chopin, el primero de los cuales ha sido despojado de estas
+              cualidades:
+            </p>
+            <div class="d-flex justify-content-around py-3">
+              <div>
+                <p>Chopin (quantized)</p>
+                <audio
+                  src="/assets/performance_rnn/chopin-quantized.mp3"
+                  controls=""
+                ></audio>
+              </div>
+              <div>
+                <p>
+                  Chopin (performed by Sageev Oore)
+                </p>
+                <audio
+                  src="/assets/performance_rnn/chopin-unquantized.mp3"
+                  controls=""
+                ></audio>
+              </div>
             </div>
-            <div>
-              <p>Dos</p>
-              <audio src="/assets/performance_rnn/chopin-quantized.mp3" controls=""> </audio>
-            </div>
+
+            <p>
+              La sutileza o contundencia pulsando la tecla del piano o alargando
+              las notas es un elemento creativo con el que cuentan los pianistas
+              para sus interpretaciones, su sensibilidad es fundamental para que
+              podamos sentir emociones.
+            </p>
+
+            <p>
+              Así que ¿Podemos crear máquinas cargadas de sensibilidad?
+            </p>
+
+            <p>
+              Performace_rnn nos da la improvisación al piano. Una red neuronal
+              recurrente (RNN) que podríamos simplificar diciendo que es una red
+              neuronal con memoria, lo que nos aporta es que dada una serie
+              concreta (texto, temperaturas, notas) la red neuronal no ofrecerá
+              el “supuesto” siguiente elemento de la serie. En nuestro caso es
+              una nota MIDI pero con su expresividad y su dinámica, como cuando
+              lo hace un intérprete real cuando pulsa el teclado en un piano.
+            </p>
+
+            <p>
+              Performace_rnn admite una serie de ajustes, como la temperatura o
+              la densidad de pulsación, escala y su nota tónica pero en nuestro
+              caso esto lo delegamos en el cliente gestionado por el navegador.
+            </p>
+            <h2 class="title--base pb-4">Tensorflow.js - Magenta</h2>
+            <p>
+              En el repositorio del
+              <a
+                href="https://github.com/tensorflow/magenta/tree/master/magenta/models/performance_rnn"
+              >
+                proyecto</a
+              >
+              esta el código python asi como el colab para poder experimentar
+              con el modelo. Nosotros hemos usado un modelo pre-entrenado para
+              usarlos con
+              <a href="https://www.tensorflow.org/js"> Tensorflow.js</a>.
+              TensorFlow.js es una biblioteca para desarrollar y entrenar
+              modelos ML en JavaScript, y desplegar en el navegador o en Node.js
+            </p>
+            <p>
+              Con tensorflow.js y desde el navegador es donde cargamos el modelo
+              RNN de Magenta y donde vamos modificando los ajustes como por
+              ejemplo el pitch_class_histogram: Que una representación de cadena
+              de una 12 valores que representan la frecuencia relativa de las
+              notas de cada clase de tono, comenzando con C (Do). Por ejemplo:
+              "[2, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1] La RNN "tenderá a adherirse
+              a una escala de C mayor, con el doble de C que cualquiera de las
+              otras notas de la escala.
+            </p>
+            <script src="https://gist.github.com/karlosgliberal/a5207cc4ff18b8c58aec1ca91d8e1d92.js"></script>
+
+            <h2 class="title--base pb-4">Como funciona</h2>
+            <p>
+              Usamos <a href="https://tonejs.github.io/">tone.js</a> para poder
+              hacer tocar al navegador y en el caso de perfromance_rnn usamos la
+              base de sonidos de Salamander Grand Piano con el proyecto
+              tone-piano que nos aporta esa gestión de velocidad y dinámica.
+            </p>
+            <h2 class="title--base pb-4">P5.js</h2>
+            <p>
+              WCMM nace como un proyecto de arte generativo, son muchos los
+              artistas que están usando el machine learning para poder crear
+              diferentes obras. Para nosotros el arte generativo es
+              <i>
+                Cuando el artista entra en colaboración con alguna suerte de
+                autómata creador, y resigna el poder de decidir cada detalle de
+                lo que sucede en la obra, ese diálogo es el que permite lo
+                generativo.</i
+              >
+            </p>
+            <p>
+              Nuestro autómata es la red neuronal recurrente que toca el piano y
+              su sensibilidad es la que usamos para crear el trazo.
+            </p>
+            <p>
+              Para la creación visual hemos usado p5.js es uno de los proyectos
+              más bonitos de internet, su comunidad y su posibilidades son
+              increíbles.
+            </p>
+            <p>
+              El trazo que con el que emulamos la acuarela funciona creando un
+              conjunto de vértices translúcidos con una mezcla de colores
+              específica simula a una acuarela. El proceso de experimentación
+              para lograr el mejor trazo posible forma parte del proyecto, crear
+              un ambiente preparado donde se de el juego y la expresión con el
+              código es parte del proyecto, aquí se puede ver algunos de los
+              experimentos.
+            </p>
+
+            <img
+              src="/assets/images/imagenProcesoTrazo.png"
+              alt="Ejemplo"
+              class="img-fluid"
+            />
+            <p>
+              Con el trazo resuelto el siguiente elemento era relacionar la
+              improvisación del performance_rnn con este trazo, que cada nota
+              enviada desde tensorflow.js, genere una animación y que esta se
+              vea representada por las características de la nota el momento y
+              la dinámica de la misma.
+            </p>
+            <p>
+              Esto en combinación con las escalas nos permiten crear las
+              historias y luego combinarlas entre sí creando lienzos únicos en
+              cada visionado.
+            </p>
+            <h2 class="title--base pb-4">Autores</h2>
+            <p>
+              Creador por
+              <a href="https://medium.com/@patxangas"
+                >Karlos G Libreal @patxangas</a
+              >
+              y realizado con la ayuda como siempre de
+              <a href="https://twitter.com/aitor_rl">Aitor Resano</a>,
+              <a href="https://twitter.com/merisu"> Miren Arrese</a> y
+              <a href="https://twitter.com/oierbravo"> Oier bravo</a>.
+            </p>
+
+            <h2 class="title--base pb-4">Bikolabs</h2>
+            <p>
+              Es el
+              <a href="https://www.biko2.com/bikolabs-creatividad-pirata/">
+                laboratorio de especulación </a
+              >de <a href="https://www.biko2.com"> Biko </a>buscamos en las
+              periferias creativas nueva experiencias y nuevos mestizajes para
+              poder ver 20 minutos por delante.
+            </p>
+            <h2 class="title--base pb-4">Inspiración</h2>
+            <p>
+              El arte digital o generativo es como un rizoma donde todo se
+              entrelaza creando nodos fuertes o débiles pero que en su conjunto
+              crean una red compleja y basta en matices. Este proyecto tiene
+              muchas inspiraciones pero estas eran obligadas de mencionar.
+              <a
+                href="https://medium.com/@zachlieberman/daily-sketches-in-2017-1b4234b0615d"
+              >
+                @zachlieberman </a
+              >Explicando su proceso creativo diario me inspiró para buscar el
+              mío propio
+              <a href="https://twitter.com/kolorexpresion"> Iñaki zalba</a> con
+              su visión del juego y los espacios preparados. Kjetil Golid con su
+              <a href="https://generated.space/">https://generated.space/</a>
+              sus codigos son fudamentales para el arte generativo y la base
+              inicial del trazo
+            </p>
           </div>
+        </div>
+      </div>
+    </div>
+    <!--End Overlay -->
 
-
-
-          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris
-            bibendum sem, in fermentum eros risus eu justo.</p>
-          <div class="code--wrap p-3">
-            <pre>Esto es código ejemplos:
-              Para formatearlo: https://www.freeformatter.com/html-escape.html
-            <pre>
-              <code>
-              &lt;p&gt;Sample text here...&lt;/p&gt;
-              &lt;p&gt;And another line of sample text here...&lt;/p&gt;
-              </code>
-            </pre>
-
+    <!-- Overlay About -->
+    <div class="fullscreen-page">
+      <div
+        class="post--header d-flex justify-content-between align-items-center sticky-top"
+      >
+        <div>
+          <img src="/assets/images/wcmm-min.png" alt="Wcmm" />
+        </div>
+        <div class="menu--action pr-2">
+          <img src="assets/images/close.png" alt="Cerrar" />
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1 post--content">
+            <h2 class="title--base pb-4">ES IA Experiment</h2>
           </div>
-          <img src="/assets/images/ejemplo.png" alt="Ejemplo" class="img-fluid">
-          <p>In laoreet nunc gravida libero molestie, commodo imperdiet nunc finibus. In metus nisi, suscipit non est
-            eu, faucibus rutrum tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-            cubilia
-            Curae; Nulla congue, urna ut suscipit porta, ipsum tellus imperdiet ante, sit amet dictum purus diam at
-            orci.
-          </p>
-          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris
-            bibendum sem, in fermentum eros risus eu justo.</p>
-          <img src="/assets/images/ejemplo2.png" alt="Ejemplo" class="img-fluid">
-          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris
-            bibendum sem, in fermentum eros risus eu justo.</p>
-          <p>Ut porta eros non viverra placerat. Quisque elementum, turpis sit amet fermentum auctor, libero mauris
-            bibendum sem, in fermentum eros risus eu justo.</p>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!--End Overlay -->
-
-  <!--Overlay ES -->
-  <div class="fullscreen-page__es">
-
-    <div class="post--header d-flex justify-content-between align-items-center sticky-top">
-      <div>
-        <img src="/assets/images/wcmm-min.png" alt="Wcmm">
-      </div>
-      <div class="menu--action__es pr-2">
-        <img src="assets/images/close.png" alt="Cerrar">
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 offset-md-1 post--content">
-          <h2 class="title--base pb-4">ES IA Experiment</h2>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--Fin Overlay ES -->
+    <!--Fin Overlay ES -->
 
-
-
-  <script src="main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Custom Overlay -->
-  <script>
-    (function () {
-      $(".menu--action").on("click", function () {
-        $(this).toggleClass('open');
-        $('.fullscreen-page').toggleClass('open');
-        $('.wcmm--wrap').toggleClass('open');
-        return $(this).toggleClass('active');
-      });
-    }).call(this);
-    (function () {
-      $(".menu--action__es").on("click", function () {
-        $(this).toggleClass('open');
-        $('.fullscreen-page__es').toggleClass('open');
-        $('.wcmm--wrap').toggleClass('open');
-        return $(this).toggleClass('active');
-      });
-    }).call(this);
-  </script>
-  <!-- Fin Custom Overlay -->
-</body>
-
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Custom Overlay -->
+    <script>
+      (function() {
+        $('.menu--action').on('click', function() {
+          $(this).toggleClass('open');
+          $('.fullscreen-page').toggleClass('open');
+          $('.wcmm--wrap').toggleClass('open');
+          return $(this).toggleClass('active');
+        });
+      }.call(this));
+      (function() {
+        $('.menu--action__es').on('click', function() {
+          $(this).toggleClass('open');
+          $('.fullscreen-page__es').toggleClass('open');
+          $('.wcmm--wrap').toggleClass('open');
+          return $(this).toggleClass('active');
+        });
+      }.call(this));
+    </script>
+    <!-- Fin Custom Overlay -->
+  </body>
 </html>
