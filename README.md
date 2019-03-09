@@ -1,6 +1,6 @@
-# Wcmm - Water color melody machine
+## Wcmm - Water color melody machine
 
-## About
+### About
 
 WCMM is the result of a creative process making use of Machine learning. This machine is a artificial intelligence improvising at the piano while he paints on a canvas.
 
@@ -8,7 +8,7 @@ WCMM is based performance_rnn from Magenta endowing of a certain sensitivity to 
 
 ![wcmm](/assets/images/gif/wcmm.gif)
 
-## Install
+### Install
 
 This project uses typescript for the code management of tensoflow.js and we manage the transpilation with webpack
 
@@ -24,22 +24,22 @@ And we prepare the project to publish
 
 `yarn build`
 
-## Disclaimer
+### Disclaimer
 
 The code is developed in prototype mode, trying to be more decisive in the problems we were trying to solve, than elegant. If you want to give it a spin and order the excess of coupling, the welcome will be your contributions.
 Neither have we worked on the optimization prioritizing the publication.
 
 The sketch has even the inheritance of typescript is not necessary, but it is an initial experiment, which I am sorry to delete :)
 
-## Autors
+### Autors
 
 Created by Karlos G Libreal [@patxangas](https://medium.com/@patxangas) and carried out with the help, as always, ofe [Aitor Resano](https://twitter.com/aitor_rl), [Miren Arrese](https://twitter.com/merisu) y [Oier bravo](https://github.com/oierbravo).
 
-## Bikolabs
+### Bikolabs
 
 [Bikolabs](https://www.biko2.com) It's the speculation laboratory from [Biko](https://www.biko2.com) we search in the creative peripheries new experiences and new crossbreeds for to be able to see 20 minutes ahead.
 
-## Inspiration
+### Inspiration
 
 The digital or generative art is like a rhizome where everything is it intertwines creating strong or weak nodes but which as a whole they create a complex network and it is enough in nuances.
 
