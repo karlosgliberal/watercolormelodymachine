@@ -31,13 +31,16 @@ Neither have we worked on the optimization prioritizing the publication.
 
 The sketch has even the inheritance of typescript is not necessary, but it is an initial experiment, which I am sorry to delete :)
 
-##Autors
+## Autors
+
 Created by Karlos G Libreal [@patxangas](https://medium.com/@patxangas) and carried out with the help, as always, ofe [Aitor Resano](https://twitter.com/aitor_rl), [Miren Arrese](https://twitter.com/merisu) y [Oier bravo](https://github.com/oierbravo).
 
-##Bikolabs
+## Bikolabs
+
 [Bikolabs](https://www.biko2.com) It's the speculation laboratory from [Biko](https://www.biko2.com) we search in the creative peripheries new experiences and new crossbreeds for to be able to see 20 minutes ahead.
 
-##Inspiration
+## Inspiration
+
 The digital or generative art is like a rhizome where everything is it intertwines creating strong or weak nodes but which as a whole they create a complex network and it is enough in nuances.
 
 - This project has many inspirations but these were bound to mention. [@zachlieberman](https://twitter.com/zachlieberman) Explaining his daily creative process inspired me to seek the my own
