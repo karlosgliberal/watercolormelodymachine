@@ -11,6 +11,7 @@ export const sketch = function(p: any) {
 
   let points: Array<any>;
   let current: Array<any>;
+  let direction = true;
 
   p.setOnReady = function(_pr: any, _sec: any, _temp: any) {
     props = _pr;
@@ -20,7 +21,6 @@ export const sketch = function(p: any) {
 
   p.setOnColor = function(_color: any) {
     color = _color;
-    console.log(color);
   };
 
   p.setup = function() {
@@ -41,7 +41,14 @@ export const sketch = function(p: any) {
     let valorTeclaPorcenaje = p.map(props, 21, 108, 0, 98.07);
     let posicionElemento = p.map(valorTeclaPorcenaje, 0, 97.07, 0, p.width);
 
-    p.translate(posicionElemento, 200 * sec * 0.02);
+    if (direction) {
+      console.log('no');
+
+      p.translate(posicionElemento, 200 * sec * 0.02);
+    } else {
+      console.log(200 * sec * 0.02 * -1);
+      p.translate(posicionElemento, 200 * sec * 0.02 * -1);
+    }
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
@@ -120,6 +127,13 @@ export const sketch = function(p: any) {
   p.keyPressed = function() {
     if (p.keyCode === 13) {
       p.save('movida_002.jpg');
+    }
+    if (p.keyCode === 82) {
+      if (direction) {
+        direction = false;
+      } else {
+        direction = true;
+      }
     }
   };
 };
