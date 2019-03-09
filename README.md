@@ -1,5 +1,7 @@
 ## Wcmm - Water color melody machine
 
+![bikolabs](/assets/images/bikolabs-bagge-pill.svg)
+
 ### About
 
 WCMM is the result of a creative process making use of Machine learning. This machine is a artificial intelligence improvising at the piano while he paints on a canvas.
