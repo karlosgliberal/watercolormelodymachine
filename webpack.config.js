@@ -55,6 +55,7 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: 'assets/images' },
+      { from: 'assets/performance_rnn' },
       { from: 'index.html' },
       { from: 'index_es.html' },
       { from: 'wcmm.html' }
