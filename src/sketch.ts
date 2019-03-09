@@ -1,4 +1,4 @@
-export const sketch = function(p: any) {
+export const sketch = function(p) {
   let props: any;
   let sec: any;
   let temp: any;
@@ -13,7 +13,7 @@ export const sketch = function(p: any) {
   let current: Array<any>;
   let direction = true;
 
-  p.setOnReady = function(_pr: any, _sec: any, _temp: any) {
+  p.setOnReady = function(_pr, _sec, _temp) {
     props = _pr;
     sec = _sec;
     temp = _temp;
