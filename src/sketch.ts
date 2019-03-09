@@ -1,4 +1,4 @@
-export const sketch = function(p) {
+export const sketch = function(p: any) {
   let props: any;
   let sec: any;
   let temp: any;
@@ -13,7 +13,7 @@ export const sketch = function(p) {
   let current: Array<any>;
   let direction = true;
 
-  p.setOnReady = function(_pr, _sec, _temp) {
+  p.setOnReady = function(_pr: any, _sec: any, _temp: any) {
     props = _pr;
     sec = _sec;
     temp = _temp;
@@ -29,24 +29,16 @@ export const sketch = function(p) {
     cnv.parent('canvas');
     p.noStroke();
     p.colorMode(p.HSB);
-    //p.rectMode(p.CENTER);
-    // p.rectMode(p.CORNER);
     p.blendMode(p.SOFT_LIGHT);
-    //p.blendMode(p.BURN);
-    //p.noLoop();
   };
 
   p.draw = function() {
-    //console.log(p.width);
     let valorTeclaPorcenaje = p.map(props, 21, 108, 0, 98.07);
     let posicionElemento = p.map(valorTeclaPorcenaje, 0, 97.07, 0, p.width);
 
     if (direction) {
-      console.log('no');
-
       p.translate(posicionElemento, 200 * sec * 0.02);
     } else {
-      console.log(200 * sec * 0.02 * -1);
       p.translate(posicionElemento, 200 * sec * 0.02 * -1);
     }
     if (sec < 10) {
@@ -126,7 +118,7 @@ export const sketch = function(p) {
 
   p.keyPressed = function() {
     if (p.keyCode === 13) {
-      p.save('movida_002.jpg');
+      p.save('movida.jpg');
     }
     if (p.keyCode === 82) {
       if (direction) {
