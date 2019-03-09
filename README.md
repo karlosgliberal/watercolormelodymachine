@@ -1,23 +1,28 @@
-#Wcmm - Water color melody machine
+# Wcmm - Water color melody machine
 
-##About
+## About
+
 WCMM is the result of a creative process making use of Machine learning. This machine is a artificial intelligence improvising at the piano while he paints on a canvas.
 
 WCMM is based performance_rnn from Magenta endowing of a certain sensitivity to improvisation.
 
 ![wcmm](/assets/images/gif/wcmm.gif)
 
-##Install
+## Install
+
 This project uses typescript for the code management of tensoflow.js and we manage the transpilation with webpack
 
 Install
-`` ` yarn install `` `
+
+`yarn install`
 
 For development we use webpack-dev-server
-`` ` yarn start `` `
+
+`yarn start`
 
 And we prepare the project to publish
-`` ` yarn build `` `
+
+`yarn build`
 
 ## Disclaimer
 
