@@ -30,7 +30,7 @@ export const escalasObjetos = {
       [[0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0], [0]],
       [[1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0], [3]]
     ],
-    color: 20,
+    color: 112,
     timeout: 2000
   },
   binario: {
@@ -41,7 +41,7 @@ export const escalasObjetos = {
       [[5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0]],
       [[0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0], [1]]
     ],
-    color: 320,
+    color: 352,
     timeout: 5000
   }
 };
