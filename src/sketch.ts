@@ -48,6 +48,8 @@ export const sketch = function(p: any) {
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
+      console.log(props);
+
       p.fill(color, props, 120, temp * 0.2);
     }
     init();
