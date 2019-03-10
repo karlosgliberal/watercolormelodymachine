@@ -36,7 +36,7 @@ a {
 }
 
 .home--link {
-  font-size: 26px;
+  font-size: 33px;
 
   a {
     border-bottom: 1px solid $white;
@@ -147,6 +147,14 @@ p {
     font-size: 14px;
     font-weight: 300;
     line-height: 1.6;
+    color: #f5f4f4;
+    a {
+         color: #c7c7c7;
+         text-decoration: underline;
+    }
+    strong {
+
+    }
   }
 }
 
@@ -212,6 +220,7 @@ a.machine--control__btn-down {
 .home--atrib {
   p {
     font-size: 12px;
+    margin-bottom: 0;
   }
 
   a {
@@ -275,4 +284,23 @@ pre {
   a {
     text-decoration: underline;
   }
+}
+
+
+.home--atrib {
+  p {
+    color: #a0a0a0;
+  }
+  a {
+     color: #a0a0a0;
+  }
+}
+
+
+.bg--typo {
+text-transform: uppercase;
+background-image: linear-gradient(90deg, #8166D9 1%, #375FB1 32%, #6B873B 64%, #B23546 99%);
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: $fontprimary;
 }
