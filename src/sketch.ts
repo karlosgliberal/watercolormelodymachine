@@ -1,3 +1,5 @@
+import { cos } from '@tensorflow/tfjs-core';
+
 export const sketch = function(p: any) {
   let props: any;
   let sec: any;
@@ -43,8 +45,9 @@ export const sketch = function(p: any) {
     if (direction) {
       p.translate(posicionElemento, 200 * sec * 0.02);
     } else {
-      p.translate(posicionElemento, 200 * sec * 0.02 * -1);
+      p.translate(p.mouseX, p.mouseY);
     }
+
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
