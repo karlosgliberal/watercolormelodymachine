@@ -141,6 +141,9 @@ function start() {
       document.querySelector('#keyboard').classList.remove('hidden');
       canvas = new P5(movida);
       resetRnn();
+      document.getElementById('downloadCanvas').onclick = () => {
+        canvas.downloadCanvas();
+      };
     });
 }
 
@@ -169,6 +172,7 @@ window.addEventListener('resize', resize);
 function resize() {
   keyboardInterface.resize();
 }
+
 window.addEventListener('hashchange', function() {
   setScaleFromHash();
   updateConditioningParams(0);

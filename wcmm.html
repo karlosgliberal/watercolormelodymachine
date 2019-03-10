@@ -71,8 +71,8 @@
           </div>
         </div>
         <div class="machine--control__links d-flex px-4">
-          <div class="menu--action pr-4">
-            <a href="" class="machine--control__btn-down">Download canvas</a>
+          <div class="pr-4" onclick="return false;" id="downloadCanvas">
+            <a href="javascript:void(0)" class="machine--control__btn-down">Download canvas</a>
           </div>
           <div class="pr-2">
             <div class="menu--action">
@@ -141,7 +141,7 @@
             <h2 class="title--base pb-4">Como funciona</h2>
             <p>
               Hemos usado performace_rnn que busca generar música teniendo en
-              cuenta la expresividad en el tiempo y la dinámica esta
+              cuenta la expresividad en el tiempo y la dinámica, esta
               investigación ha sido creada por
               <a href="https://twitter.com/iansimon"> iansimon</a>
               <a href="https://twitter.com/osageev"> osageev</a> y aqui esta el
@@ -357,13 +357,13 @@
             <p>
               What creative possibilities does machine learning offer? <br />
               WCMM is a creative process using Machine learning. This machine is
-              a artificial intelligence that improvises at the piano while
+              an artificial intelligence that improvises at the piano while
               painting.
             </p>
             <p>
-              To create WCMM we used
-              <a href="https://magenta.tensorflow.org/">Magenta</a> which is a
-              an open-source research project that explores paper of machine
+              WCMM its made with
+              <a href="https://magenta.tensorflow.org/">Magenta</a>,
+              an open-source research project that explores the role of the machine
               learning as a creative tool.
             </p>
 
@@ -425,7 +425,7 @@
             </p>
 
             <p>
-              Performace_rnn gives us improvisation at the piano. A neural
+              Performace_rnn gives us an improvisation at the piano. A neural
               network (RNN) that we could simplify by saying that it is a
               network. neuronal with memory, what it gives us is that given a
               series of concrete (text, temperatures, notes) the neural network
@@ -470,9 +470,9 @@
             <h2 class="title--base pb-4">Tone.js</h2>
             <p>
               We use <a href="https://tonejs.github.io/">tone.js</a> to be able
-              to touch the browser and in the case of perfromance_rnn we use the
+              to play in the browser and in the case of perfromance_rnn we use the
               sound base of Salamander Grand Piano with the project tone-piano
-              that gives us that management of speed and dynamics.
+              that gives us the management of speed and dynamics.
             </p>
             <h2 class="title--base pb-4">P5.js</h2>
             <p>

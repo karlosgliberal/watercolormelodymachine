@@ -23,6 +23,10 @@ export const sketch = function(p: any) {
     color = _color;
   };
 
+  p.downloadCanvas = function() {
+    p.save('canvas.jpg');
+  };
+
   p.setup = function() {
     p.frameRate(20);
     let cnv = p.createCanvas(p.windowWidth, p.windowHeight);
@@ -44,6 +48,8 @@ export const sketch = function(p: any) {
     if (sec < 10) {
       p.fill(0, 0, 0, 0.25);
     } else {
+      console.log(props);
+
       p.fill(color, props, 120, temp * 0.2);
     }
     init();
@@ -71,7 +77,7 @@ export const sketch = function(p: any) {
     let c = deep_copy(points);
     for (let b = 0; b < 3; b++) {
       for (let i = 0; i < c.length; i++) {
-        move_nearby(c[i], props * temp * 4);
+        move_nearby(c[i], props * temp * 3);
       }
     }
     return c;
