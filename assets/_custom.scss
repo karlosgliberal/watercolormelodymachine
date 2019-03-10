@@ -220,6 +220,7 @@ a.machine--control__btn-down {
 .home--atrib {
   p {
     font-size: 12px;
+    margin-bottom: 0;
   }
 
   a {
@@ -296,10 +297,9 @@ pre {
 }
 
 
-.a {
+.bg--typo {
 text-transform: uppercase;
 background-image: linear-gradient(90deg, #8166D9 1%, #375FB1 32%, #6B873B 64%, #B23546 99%);
-
 	-webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: $fontprimary;
