@@ -163,7 +163,6 @@ function resetRnn() {
   }
   lastSample = tf.scalar(PRIMER_IDX, 'int32');
   currentPianoTimeSec = piano.now();
-  //pianoStartTimestampMs = performance.now() - currentPianoTimeSec * 1000;
   currentLoopId++;
   generateStep(currentLoopId);
 }
