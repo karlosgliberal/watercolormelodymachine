@@ -418,5 +418,7 @@ function setScaleFromHash() {
   } else {
     //No existe: ponemos el definido por defecto.
     currentScala = defaultScala;
+    let elementoIcono = document.getElementById('');
+    document.getElementById(currentScala).classList.add('btn-sel__active');
   }
 }
