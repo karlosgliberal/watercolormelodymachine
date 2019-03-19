@@ -415,10 +415,10 @@ function setScaleFromHash() {
   if (scalas.hasOwnProperty(hash)) {
     //Existe: lo asignamos
     currentScala = hash;
+    document.getElementById(currentScala).classList.add('btn-sel__active');
   } else {
     //No existe: ponemos el definido por defecto.
     currentScala = defaultScala;
-    let elementoIcono = document.getElementById('');
     document.getElementById(currentScala).classList.add('btn-sel__active');
   }
 }
