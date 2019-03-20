@@ -607,6 +607,17 @@
         });
       }.call(this));
     </script>
+    <script>
+      $(document).ready(function() {
+        $('.btn-sel').click(function() {
+          $(this)
+            .addClass('btn-sel__active')
+            .siblings()
+            .removeClass('btn-sel__active');
+        });
+      });
+    </script>
+
     <!-- Fin Custom Overlay -->
   </body>
 </html>
