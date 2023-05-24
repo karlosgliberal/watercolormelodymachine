@@ -1,64 +1,54 @@
-'use strict';
-const path = require('path');
+"use strict";
+const path = require("path");
 
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  devtool: 'inline-source-map',
-  entry: './src/index.ts',
+  devtool: "inline-source-map",
+  entry: "./src/index.ts",
   output: {
-    pathinfo: false
+    pathinfo: false,
   },
-  mode: 'development',
+  mode: "development",
   optimization: {
     removeAvailableModules: false,
     removeEmptyChunks: false,
-    splitChunks: false
+    splitChunks: false,
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: path.resolve(__dirname, 'node_modules/'),
+        exclude: path.resolve(__dirname, "node_modules/"),
         use: [
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
             options: {
               transpileOnly: true,
-              experimentalWatchApi: true
-            }
-          }
-        ]
+              experimentalWatchApi: true,
+            },
+          },
+        ],
       },
-      {
-        test: /\.scss$/,
-        exclude: path.resolve(__dirname, 'node_modules/'),
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: [".ts", ".tsx", ".js"],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
-      publicPath: './dist/',
-      filename: 'style.css'
+      publicPath: "./dist/",
+      filename: "style.css",
     }),
     new CopyPlugin([
-      { from: 'assets/images' },
-      { from: 'assets/performance_rnn' },
-      { from: 'index.html' },
-      { from: 'index_es.html' },
-      { from: 'wcmm.html' }
-    ])
-  ]
+      { from: "assets/images" },
+      { from: "assets/performance_rnn" },
+      { from: "index.html" },
+      { from: "index_es.html" },
+      { from: "wcmm.html" },
+    ]),
+  ],
 };

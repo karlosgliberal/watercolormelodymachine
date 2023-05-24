@@ -1,28 +1,25 @@
-'use strict';
-const path = require('path');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
+"use strict";
+const path = require("path");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const ImageminPlugin = require("imagemin-webpack-plugin").default;
 
 module.exports = {
   //devtool: 'inline-source-map',
-  entry: './src/index.ts',
+  entry: "./src/index.ts",
   output: {
-    pathinfo: false
+    pathinfo: false,
   },
-  mode: 'production',
+  mode: "production",
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true, // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+    ],
   },
   module: {
     rules: [
@@ -30,46 +27,33 @@ module.exports = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
             options: {
-              transpileOnly: false
-            }
-          }
-        ]
+              transpileOnly: false,
+            },
+          },
+        ],
       },
-      {
-        test: /\.scss$/,
-        exclude: path.resolve(__dirname, 'node_modules/'),
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: [".ts", ".tsx", ".js"],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      publicPath: './dist/',
-      filename: 'style.css'
-    }),
-    new CopyPlugin([
-      { from: 'assets/images', to: 'assets/images' },
-      { from: 'assets/performance_rnn', to: 'assets/performance_rnn' },
-      { from: 'index.html' },
-      { from: 'index_es.html' },
-      { from: 'wcmm.html' }
-    ]),
+    // new CopyPlugin([
+    //   { from: "assets/images" },
+    //   // { from: "assets/performance_rnn", to: "assets/performance_rnn" },
+    //   // { from: "index.html", to: "ndex.html" },
+    //   // { from: "index_es.html", to: "ndex_es.html" },
+    //   // { from: "style.css", to: "style.css" },
+    //   // { from: "wcmm.html", to: "wcmm.html" },
+    // ]),
     new ImageminPlugin({
       pngquant: {
-        quality: '95-100'
+        quality: "95-100",
       },
-      test: /\.(jpe?g|png|gif|svg)$/i
-    })
-  ]
+      test: /\.(jpe?g|png|gif|svg)$/i,
+    }),
+  ],
 };

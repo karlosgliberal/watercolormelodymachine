@@ -1,12 +1,11 @@
 {
-  "name": "Wcmm",
+  "name": "wcmm",
   "main": "index.js",
   "version": "1.0.0",
-  "engines": {
-    "node": "<=8.9.4 || >=9.12.0"
-  },
   "dependencies": {
     "@tensorflow/tfjs-core": "0.8.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "p5": "^0.6.1",
     "tone-piano": "^0.0.12"
   },
@@ -15,17 +14,7 @@
     "start": "webpack-dev-server --progress --open"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.8.6",
-    "@types/node": "^9.6.5",
-    "copy-webpack-plugin": "^5.0.0",
-    "css-loader": "^2.1.0",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
-    "imagemin-webpack-plugin": "^2.4.2",
-    "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
     "ts-loader": "^4.1.0",
     "typescript": "^2.6.2",
     "uglifyjs-webpack-plugin": "^2.1.2",
